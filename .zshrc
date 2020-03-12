@@ -108,7 +108,7 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=$PATH:~/.local/bin
+path+=('~/.local/bin')
 
 # nvm setup
 export NVM_DIR="$HOME/.nvm"
@@ -126,6 +126,9 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # cpp stuff
 export CC=gcc
 export CXX=g++
+
+# snap in path
+path+=('/snap/bin/')
 
 # I want to display the calendar on startup
 cal
