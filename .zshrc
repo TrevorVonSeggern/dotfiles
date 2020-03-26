@@ -105,6 +105,10 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 
 	# for angular dev
 	export CHROME_BIN=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+
+	if [[ "$(umask)" = "0000" ]]; then
+		umask 0022
+	fi
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
