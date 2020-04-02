@@ -1,0 +1,10 @@
+[user]
+     email = tvonseg@hach.com
+     name = Trevor Von Seggern
+[mergetool]
+     keepBackup = false
+[core]
+     editor = vim
+
+[log]
+	  date = relative
