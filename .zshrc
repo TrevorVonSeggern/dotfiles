@@ -119,7 +119,7 @@ export NVM_DIR="$HOME/.nvm"
 # dotnet cli
 path+=('~/.dotnet/tools/')
 
-alias glog='git log --all --graph --date-order --pretty=format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s'
+alias glog='git log --date-order --all --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)"'
 
 # dotnet disable spying
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
