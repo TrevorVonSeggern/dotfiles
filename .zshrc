@@ -131,8 +131,14 @@ export CXX=g++
 # snap in path
 path+=('/snap/bin/')
 
-# elm stuff
+
+##### ALIASES for docker as a virtual development environment
+
+# elm
 alias elm='docker run -it --rm -v "$(pwd):/code" -w "/code" -e "HOME=/tmp" -u $UID:$GID -p 8000:8000 codesimple/elm:0.19'
+
+# python
+alias pthon='docker run -it --rm -v "$(pwd):/project" -e "HOME=/project" -u $UID:$GID -p 8080:8080 python:3'
 
 # I want to display the calendar on startup
 cal
