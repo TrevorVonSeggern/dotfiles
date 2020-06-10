@@ -1,8 +1,9 @@
 #!/bin/bash
-CDIR=`pwd`
+
+CDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # zsh
-[[ -f $HOME/.zshrc ]] && echo "about to delete zshrc" && rm ~/.zshrc
+[[ -f ~/.zshrc ]] && echo "about to delete zshrc" && rm ~/.zshrc
 ln -s $CDIR/.zshrc ~/.zshrc
 
 # gitconfig
