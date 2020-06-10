@@ -1,7 +1,9 @@
 #!/bin/bash
+CDIR=`pwd`
 
 # zsh
-ln -s $HOME/.zshrc ~/.zshrc
+[[ -f $HOME/.zshrc ]] && echo "about to delete zshrc" && rm ~/.zshrc
+ln -s $CDIR/.zshrc ~/.zshrc
 
 # gitconfig
-ln -s $HOME/.gitconfig ~/.gitconfig
+ln -s $CDIR/.gitconfig ~/.gitconfig
