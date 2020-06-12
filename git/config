@@ -1,10 +1,9 @@
 [user]
-     email = tvonseg@hach.com
+     email = tvoman2@gmail.com
      name = Trevor Von Seggern
 [mergetool]
      keepBackup = false
 [core]
      editor = vim
-
 [log]
      date = relative
