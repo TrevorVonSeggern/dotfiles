@@ -2,7 +2,7 @@
 
 CDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-source .zshenv
+source $CDIR/.zshenv
 
 # zsh
 [[ -f ~/.zshenv ]] && rm ~/.zshenv
