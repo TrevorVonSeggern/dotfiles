@@ -41,6 +41,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# display welcome message
+echo '/ / /\ \ \___| | ___ ___  _ __ ___   ___'
+echo '\ \/  \/ / _ \ |/ __/ _ \|  _ ` _ \ / _ \'
+echo ' \  /\  /  __/ | (_| (_) | | | | | |  __/'
+echo '  \/  \/ \___|_|\___\___/|_| |_| |_|\___|'
+
 # I want to display the calendar on startup
 cal
 
@@ -90,5 +96,4 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
