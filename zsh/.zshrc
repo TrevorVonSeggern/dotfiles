@@ -63,7 +63,7 @@ export CXX=g++
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet disable spying
 
 # elm
-alias elm='docker run -it --rm -v "$(pwd):/code" -w "/code" -e "HOME=/tmp" -u $UID:$GID -p 8000:8000 codesimple/elm:0.19'
+#alias elm='docker run -it --rm -v "$(pwd):/code" -w "/code" -e "HOME=/tmp" -u $UID:$GID -p 8000:8000 codesimple/elm:0.19'
 # python
 alias pthon='docker run -it --rm -v "$(pwd):/project" -e "HOME=/project" -u $UID:$GID -p 8080:8080 python:3'
 # best git log alias
