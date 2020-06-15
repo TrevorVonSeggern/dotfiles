@@ -2,6 +2,8 @@ Synergy
 update-notifier
 monitors.xml
 gnome-session
+gnome-control-center
+xfce4
 ibus
 pulse
 dconf

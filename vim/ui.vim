@@ -22,8 +22,6 @@ set cursorline
 "highlight clear CursorLineNr
 "highlight CursorLineNr ctermfg=white ctermbg=darkgrey
 
-
-
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 set noshowmode

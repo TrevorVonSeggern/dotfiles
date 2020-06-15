@@ -9,6 +9,7 @@ runtime plugins.vim
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 " Ui
 Plug 'HenryNewcomer/vim-theme-papaya'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -35,22 +36,26 @@ Plug 'leafgarland/typescript-vim'
 "Html
 Plug 'mattn/emmet-vim'
 
-" General editing
-Plug 'ervandew/supertab'
+" Core general editing
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim' " definitely need both. Not actually duplicate fzf installs.
+Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
 Plug 'gioele/vim-autoswap'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" other general editing
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-fugitive'
 
 " MarkDown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'JamshedVesuna/vim-markdown-preview'
 
-
 call plug#end()
+
+" for some reason ui needs to be loaded after...
+runtime ui.vim
 
 filetype indent plugin on
 
@@ -59,8 +64,8 @@ let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 0
 let g:asyncomplete_force_refresh_on_context_changed = 1
 
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_highlight_types = 2
+let g:airline#extensions#tabline#enabled = 1
+
 
 let g:test#csharp#runner='dotnettest'
 let test#strategy = "dispatch"
