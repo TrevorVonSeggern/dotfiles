@@ -85,8 +85,6 @@ path+=('/snap/bin/')
 
 # Docker in wsl to non wsl
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-	export DOCKER_HOST=tcp://localhost:2375
-
 	# for angular dev
 	export CHROME_BIN=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 	umask 0022
