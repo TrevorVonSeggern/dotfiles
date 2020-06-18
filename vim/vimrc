@@ -8,21 +8,31 @@ runtime plugins.vim
 
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 " Ui
-Plug 'HenryNewcomer/vim-theme-papaya'
-
+Plug 'flazz/vim-colorschemes' " so many colors!
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Core general editing
+Plug 'editorconfig/editorconfig-vim' " respect .editorconfig
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf.vim' " definitely need both. Not actually duplicate fzf installs.
+Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
+Plug 'gioele/vim-autoswap' " because swap files get in the way.
+
+" other general editing
+Plug 'w0rp/ale' " linter. It is a client for language servers.
+Plug 'ervandew/supertab' " tab for autocomplete
+Plug 'tpope/vim-fugitive' " git
+
+
 " C#
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'w0rp/ale'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'janko/vim-test'
 Plug 'tpope/vim-dispatch'
 
 " Python
-Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 
 " Angular
@@ -36,17 +46,6 @@ Plug 'leafgarland/typescript-vim'
 "Html
 Plug 'mattn/emmet-vim'
 
-" Core general editing
-Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf.vim' " definitely need both. Not actually duplicate fzf installs.
-Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
-Plug 'gioele/vim-autoswap'
-
-" other general editing
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-fugitive'
-
 " MarkDown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -59,13 +58,16 @@ runtime ui.vim
 
 filetype indent plugin on
 
-set completeopt=menuone,noinsert,noselect,preview
+" set completeopt=menuone,noinsert,noselect,preview
+
+" ale settings
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 0
 let g:asyncomplete_force_refresh_on_context_changed = 1
-
-let g:airline#extensions#tabline#enabled = 1
-
+let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\}
 
 let g:test#csharp#runner='dotnettest'
 let test#strategy = "dispatch"
@@ -73,7 +75,6 @@ let test#strategy = "dispatch"
 " This adds a large preview split screen on the top of the terminal
 " let g:omnicomplete_fetch_full_documentation = 1
 
-let g:ale_linters = { 'cs': ['OmniSharp'] }
 
 " supertab config
 let g:SuperTabDefaultCompletionType = "<c-n>"

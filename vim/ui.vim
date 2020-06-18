@@ -8,7 +8,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colo papaya
+colo codedark
 
 "colorscheme ayu
 " The background should be black regardless of what the terminal theme is.
