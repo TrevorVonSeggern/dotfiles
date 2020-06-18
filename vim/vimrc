@@ -15,69 +15,46 @@ Plug 'vim-airline/vim-airline-themes'
 " Core general editing
 Plug 'editorconfig/editorconfig-vim' " respect .editorconfig
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf.vim' " definitely need both. Not actually duplicate fzf installs.
+Plug 'w0rp/ale' " linter. It is a client for language servers.
+Plug 'ajh17/vimcompletesme' " alternatives => supertab, youcompleteme
+Plug 'junegunn/fzf.vim' " definitely need both fzf plugs. Not actually duplicate fzf installs.
 Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
 Plug 'gioele/vim-autoswap' " because swap files get in the way.
-
-" other general editing
-Plug 'w0rp/ale' " linter. It is a client for language servers.
-Plug 'ervandew/supertab' " tab for autocomplete
 Plug 'tpope/vim-fugitive' " git
 
-
-" C#
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'janko/vim-test'
-Plug 'tpope/vim-dispatch'
-
-" Python
-Plug 'nvie/vim-flake8'
+" Language specific plugins
+Plug 'OmniSharp/omnisharp-vim' " C#
+Plug 'davidhalter/jedi-vim' " Python
+Plug 'mattn/emmet-vim' " Html
 
 " Angular
 "Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 "Plug 'Quramy/vim-js-pretty-template'
-"Plug 'jason0x43/vim-js-indent'
 "Plug 'Quramy/vim-dtsm'
 "Plug 'mhartington/vim-typings'
-
-"Html
-Plug 'mattn/emmet-vim'
-
-" MarkDown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
 " for some reason ui needs to be loaded after...
 runtime ui.vim
 
+" this is needed for loading .vim file in the ftplugin. That way specific
+" settings only get applied to specific file types.
 filetype indent plugin on
 
-" set completeopt=menuone,noinsert,noselect,preview
+" Tab completion options
+set completeopt=longest,menuone
+
+" airline ==>==>====<==<==
+let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
 
 " ale settings
-let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_force_refresh_on_context_changed = 1
-let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1 " keeps the gutter on the left open always.
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \}
-
-let g:test#csharp#runner='dotnettest'
-let test#strategy = "dispatch"
-
-" This adds a large preview split screen on the top of the terminal
-" let g:omnicomplete_fetch_full_documentation = 1
-
-
-" supertab config
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " nerdtree config
 autocmd StdinReadPre * let s:std_in=1
@@ -88,15 +65,5 @@ let NERDTreeDirArrows = 1
 map <C-w><C-w> :NERDTreeToggle %<CR> " ctrl ww opens nerdtree
 let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
 
-" emmit (html)
-let g:user_emmet_leader_key=','
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-
-" Markdown
-let g:vim_markdown_folding_disabled = 1
-let vim_markdown_preview_github=1
-
-" angular
-let g:SuperTabDefaultCompletionType = 'context'
-let g:tsuquyomi_use_vimproc=1
+" emmit should lazy install.
+let user_emmet_install_global = 0

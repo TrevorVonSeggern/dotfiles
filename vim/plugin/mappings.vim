@@ -18,14 +18,6 @@ imap <C-BS> <C-W>
 set wildmode=longest,list,full
 set wildmenu
 
-augroup yaml
-	autocmd!
-	
-	au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-augroup END
-
 
 augroup omnisharp_commands
 	autocmd!
@@ -68,4 +60,3 @@ augroup omnisharp_commands
 	autocmd FileType cs nnoremap <leader>ra :TestSuite<cr>
 	autocmd FileType cs nnoremap <leader>rl :TestLast<cr>
 augroup END
-

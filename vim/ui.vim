@@ -1,6 +1,7 @@
 set encoding=utf-8
 set history=1000                                    "number of command lines to remember
 set ttyfast                                         "assume fast terminal connection
+set lazyredraw
 set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
 
 " Theme
@@ -12,7 +13,7 @@ colo codedark
 
 "colorscheme ayu
 " The background should be black regardless of what the terminal theme is.
-"highlight Normal ctermbg=black 
+"highlight Normal ctermbg=black
 "highlight Comment ctermfg=darkgreen
 "highlight LineNr ctermfg=white ctermbg=darkgrey
 
@@ -34,4 +35,3 @@ set t_vb=
 set number
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-
