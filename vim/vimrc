@@ -42,6 +42,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim' " definitely need both. Not actually duplicate fzf installs.
 Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
 Plug 'gioele/vim-autoswap'
+Plug 'vim-scripts/LargeFile'
 
 " other general editing
 Plug 'ervandew/supertab'
