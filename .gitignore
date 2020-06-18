@@ -3,6 +3,9 @@ update-notifier
 monitors.xml
 monitors.xml~
 gnome-session
+gedit
+eog
+enchant
 gnome-control-center
 xfce4
 ibus
