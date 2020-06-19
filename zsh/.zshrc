@@ -38,6 +38,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HISTFILE ] || mkdir -p $XDG_DATA_HOME/zsh && touch $HISTFILE
 
 # User configuration
 
@@ -48,7 +49,7 @@ echo ' \  /\  /  __/ | (_| (_) | | | | | |  __/'
 echo '  \/  \/ \___|_|\___\___/|_| |_| |_|\___|'
 
 # I want to display the calendar on startup
-cal
+[[ -f /usr/bin/cal ]] && cal
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -94,4 +95,3 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
