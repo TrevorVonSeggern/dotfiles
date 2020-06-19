@@ -4,6 +4,9 @@ set fileformats=unix,dos,mac
 " line numbering on the left.
 set number relativenumber
 
+set splitright
+set splitbelow
+
 " better copy paste with vim?
 set clipboard=unnamed
 set clipboard=unnamedplus
