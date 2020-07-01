@@ -24,6 +24,7 @@ Plug 'tpope/vim-fugitive' " git
 Plug 'OmniSharp/omnisharp-vim' " C#
 Plug 'davidhalter/jedi-vim' " Python
 Plug 'mattn/emmet-vim' " Html
+Plug 'ekalinin/Dockerfile.vim' " syntax for the dockerfile
 
 " Angular
 "Plug 'Quramy/tsuquyomi'

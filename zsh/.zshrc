@@ -76,11 +76,11 @@ bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 
 
-path+=('~/.local/bin')
+path+=("$HOME/.local/bin")
 # dotnet cli
-path+=('~/.dotnet/tools/')
+path+=("$HOME/.dotnet/tools/")
 # snap in path
-path+=('/snap/bin/')
+path+=("/snap/bin")
 
 
 
@@ -91,7 +91,3 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 	umask 0022
 fi
 
-# nvm setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
