@@ -15,7 +15,9 @@ export LS_COLORS
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
+setopt CORRECT
+unsetopt CORRECTALL
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -90,4 +92,3 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 	export CHROME_BIN=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 	umask 0022
 fi
-
