@@ -53,8 +53,6 @@ end
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 beautiful.init("~/.config/awesome/themes/default/theme.lua")
---beautiful.wallpaper = "~/Pictures/wallpaper.png"
-beautiful.useless_gap = 5
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -70,7 +68,6 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
---    awful.layout.suit.floating,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
@@ -512,12 +509,8 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
-    },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+      }, properties = { titlebars_enabled = false }
+    }
 }
 -- }}}
 
