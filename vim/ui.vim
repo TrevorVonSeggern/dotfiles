@@ -6,7 +6,7 @@ set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
 
 " Theme
 if (has("termguicolors"))
-  set termguicolors
+  "set termguicolors " Doesn't work in alacritty.
 endif
 
 colo codedark
