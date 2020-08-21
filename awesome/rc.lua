@@ -7,7 +7,6 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
---local lain = require("lain")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local freedesktop = require("freedesktop")
 local my_table = awful.util.table or gears.table -- compatibility.
@@ -61,13 +60,7 @@ for i,t in pairs(terminals) do
 end
 local editor_cmd = terminal .. " -e " .. editor
 
---naughty.notify({title = terminal})
-
-beautiful.init("/home/trevor/.config/awesome/themes/default/theme.lua")
---beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
---beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
-
--- {{{ Variable definitions
+beautiful.init(os.getenv("HOME") .. '/.config/awesome/themes/' .. chosen_theme .. '/theme.lua')
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -87,7 +80,6 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
@@ -98,7 +90,6 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
---awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function() awful.util.mymainmenu:hide() end)
 
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
@@ -118,7 +109,7 @@ else
     })
 end
 
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -175,6 +166,30 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
+
+
+
+
+
+
+
+
+-- WIDGETS
+
+
+-- CPU
+local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
+local cpu = lain.widget.cpu({
+    settings = function()
+        widget:set_markup(markup.fontfg(theme.font, "#e33a6e", cpu_now.usage .. "% "))
+    end
+})
+
+--require('lain')
+
+
+
+
 -- Wallpaper
 local function set_wallpaper(s)
     if beautiful.wallpaper then
@@ -187,22 +202,93 @@ local function set_wallpaper(s)
 end
 screen.connect_signal("property::geometry", set_wallpaper)
 
-naughty.notify({title = 'asdf'})
---awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
--- }}}
 
--- {{{ Mouse bindings
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
-))
+--naughty.notify({title = 'asdf'})
+awful.screen.connect_for_each_screen(function(s)
+	set_wallpaper(s)
+
+    -- Tags
+	awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+
+    -- Create a promptbox for each screen
+    s.mypromptbox = awful.widget.prompt()
+    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
+    -- We need one layoutbox per screen.
+    s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox:buttons(my_table.join(
+                           awful.button({}, 1, function () awful.layout.inc( 1) end),
+                           awful.button({}, 2, function () awful.layout.set( awful.layout.layouts[1] ) end),
+                           awful.button({}, 3, function () awful.layout.inc(-1) end),
+                           awful.button({}, 4, function () awful.layout.inc( 1) end),
+                           awful.button({}, 5, function () awful.layout.inc(-1) end)))
+    -- Create a taglist widget
+	s.mytaglist = awful.widget.taglist {
+        screen  = s,
+        filter  = awful.widget.taglist.filter.all,
+        buttons = taglist_buttons
+    }
+
+	-- Create a tasklist widget
+    s.mytasklist = awful.widget.tasklist {
+        screen  = s,
+        filter  = awful.widget.tasklist.filter.currenttags,
+        buttons = tasklist_buttons
+    }
+
+    -- Create the wibox
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(19) })
+
+    -- Add widgets to the wibox
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            --s.mylayoutbox,
+            s.mytaglist,
+            s.mypromptbox,
+            mpdicon,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            wibox.widget.systray(),
+
+            netdownicon,
+            netdowninfo,
+            netupicon,
+            --netupinfo.widget,
+
+            --volicon,
+            --theme.volume.widget,
+
+            memicon,
+            --memory.widget,
+
+            cpuicon,
+            --cpu.widget,
+
+            --fsicon,
+            --theme.fs.widget,
+            --weathericon,
+            --theme.weather.widget,
+            --tempicon,
+            --temp.widget,
+
+			baticon,
+			--bat.widget,
+
+			clockicon,
+            mytextclock,
+
+            s.mylayoutbox,
+        },
+    }
+end)
 -- }}}
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey }, "s", hotkeys_popup.show_help, {description="show help", group="awesome"}),
-
     awful.key({ modkey }, "Left", awful.tag.viewprev, {description = "view previous", group = "tag"}),
     awful.key({ modkey }, "Right", awful.tag.viewnext, {description = "view next", group = "tag"}),
     awful.key({ modkey }, "Escape", awful.tag.history.restore, {description = "go back", group = "tag"}),
@@ -441,8 +527,7 @@ awful.rules.rules = {
           "pinentry",
         },
         class = {
-          "Arandr",
-          "Blueman-manager",
+          --"Arandr", "Blueman-manager",
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
