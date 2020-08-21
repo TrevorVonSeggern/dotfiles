@@ -1,5 +1,3 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
 local gears = require("gears")
@@ -179,7 +177,8 @@ local tasklist_buttons = gears.table.join(
 
 -- WIDGETS
 
-local lain = require('lain')
+local theme = beautiful
+
 -- CPU
 local cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
 local cpu = lain.widget.cpu({
@@ -187,9 +186,55 @@ local cpu = lain.widget.cpu({
         widget:set_markup(markup.fontfg(beautiful.font, "#e33a6e", cpu_now.usage .. "% "))
     end
 })
+-- Coretemp
+local tempicon = wibox.widget.imagebox(theme.widget_temp)
+local temp = lain.widget.temp({
+    settings = function()
+        widget:set_markup(markup.fontfg(theme.font, "#f1af5f", coretemp_now .. "°C "))
+    end
+})
+-- MEM
+local memicon = wibox.widget.imagebox(theme.widget_mem)
+local memory = lain.widget.mem({
+    settings = function()
+        widget:set_markup(markup.fontfg(theme.font, "#e0da37", mem_now.used .. "M "))
+    end
+})
+-- Battery
+local baticon = wibox.widget.imagebox(theme.widget_batt)
+local bat = lain.widget.bat({
+	settings = function()
+		local noBattery = string.find(bat_now.perc, "N/A")
+		if noBattery then
+			widget:set_markup('')
+			baticon.visible = false
+		else
+			local perc = bat_now.perc ~= "N/A" and bat_now.perc .. "%" or bat_now.perc
 
+			if bat_now.ac_status == 1 then
+				perc = perc .. " plug"
+			end
 
+			widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, perc .. " "))
+		end
+	end
+})
+-- Net
+local netdownicon = wibox.widget.imagebox(theme.widget_netdown)
+local netdowninfo = wibox.widget.textbox()
+local netupicon = wibox.widget.imagebox(theme.widget_netup)
+local netupinfo = lain.widget.net({
+    settings = function()
+        --if iface ~= "network off" and
+           --string.match(theme.weather.widget.text, "N/A")
+        --then
+            --theme.weather.update()
+        --end
 
+        widget:set_markup(markup.fontfg(theme.font, "#e54c62", net_now.sent .. " "))
+        netdowninfo:set_markup(markup.fontfg(theme.font, "#87af5f", net_now.received .. " "))
+    end
+})
 
 
 -- Wallpaper
@@ -245,10 +290,9 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --s.mylayoutbox,
+            s.mylayoutbox,
             s.mytaglist,
             s.mypromptbox,
-            mpdicon,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
@@ -258,31 +302,30 @@ awful.screen.connect_for_each_screen(function(s)
             netdownicon,
             netdowninfo,
             netupicon,
-            --netupinfo.widget,
+            netupinfo.widget,
 
             --volicon,
             --theme.volume.widget,
 
             memicon,
-            --memory.widget,
+            memory.widget,
 
             cpuicon,
-            --cpu.widget,
+            cpu.widget,
 
             --fsicon,
             --theme.fs.widget,
             --weathericon,
             --theme.weather.widget,
-            --tempicon,
-            --temp.widget,
+
+            tempicon,
+            temp.widget,
 
 			baticon,
-			--bat.widget,
+			bat.widget,
 
 			clockicon,
             mytextclock,
-
-            s.mylayoutbox,
         },
     }
 end)
@@ -515,7 +558,7 @@ awful.rules.rules = {
      }
     },
 
-    -- Alacritty should be transparent, this doesn't currently work.
+    -- Alacritty should be transparent.
     {
 		rule = { class = 'Alacritty' },
 		properties = { opacity = 0.9 }
