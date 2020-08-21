@@ -179,7 +179,7 @@ local tasklist_buttons = gears.table.join(
 
 -- WIDGETS
 
-
+local lain = require('lain')
 -- CPU
 local cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
 local cpu = lain.widget.cpu({
