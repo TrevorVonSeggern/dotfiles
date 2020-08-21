@@ -9,11 +9,14 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local freedesktop = require("freedesktop")
-local my_table = awful.util.table or gears.table -- compatibility.
-local dpi = require("beautiful.xresources").apply_dpi
 local menubar = require("menubar")
+local lain = require('lain')
+local dpi = require("beautiful.xresources").apply_dpi
 require("awful.autofocus")
 require("awful.hotkeys_popup.keys")
+
+local markup = lain.util.markup
+local my_table = awful.util.table or gears.table -- compatibility.
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
@@ -178,14 +181,13 @@ local tasklist_buttons = gears.table.join(
 
 
 -- CPU
-local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
+local cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
 local cpu = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, "#e33a6e", cpu_now.usage .. "% "))
+        widget:set_markup(markup.fontfg(beautiful.font, "#e33a6e", cpu_now.usage .. "% "))
     end
 })
 
---require('lain')
 
 
 

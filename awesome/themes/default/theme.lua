@@ -17,7 +17,7 @@ local themes_path = os.getenv('HOME') .. '/.config/awesome/themes/'
 local theme = {}
 theme.confdir = themes_path .. 'default/'
 
-theme.font          = "Ubuntu mono 8"
+theme.font          = "Ubuntu mono 10"
 
 theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(0)
