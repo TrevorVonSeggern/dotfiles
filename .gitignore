@@ -1,5 +1,6 @@
-qtproject
-qdirstat
+cmus
+QtProject.conf
+QDirStat
 autorandr
 Synergy
 update-notifier
