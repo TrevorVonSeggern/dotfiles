@@ -8,21 +8,25 @@ runtime plugins.vim
 
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 " Ui
-Plug 'flazz/vim-colorschemes' " so many colors!
+"Plug 'flazz/vim-colorschemes' " so many colors!
+Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" base editor stuff
 Plug 'editorconfig/editorconfig-vim' " respect .editorconfig
 Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale' " linter. It is a client for language servers.
-Plug 'ajh17/vimcompletesme' " alternatives => supertab, youcompleteme
 Plug 'junegunn/fzf.vim' " definitely need both fzf plugs. Not actually duplicate fzf installs.
 Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
 Plug 'gioele/vim-autoswap' " because swap files get in the way.
+
+" Plug 'ajh17/vimcompletesme' " alternatives => supertab, youcompleteme. Not
+" needed with coc.
 Plug 'tpope/vim-fugitive' " git
 
 " Language specific plugins
-Plug 'OmniSharp/omnisharp-vim' " C#
-Plug 'davidhalter/jedi-vim' " Python
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " do you really need other plugins? todo...
+Plug 'w0rp/ale' " linter. It is a client for language servers.
 Plug 'mattn/emmet-vim' " Html
 Plug 'ekalinin/Dockerfile.vim' " syntax for the dockerfile
 
@@ -61,8 +65,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-map <C-w><C-w> :NERDTreeToggle %<CR> " ctrl ww opens nerdtree
 let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
+
+" setup intellisense.
+let g:coc_global_extensions=[ 'coc-omnisharp' ]
 
 " emmit should lazy install.
 let user_emmet_install_global = 0

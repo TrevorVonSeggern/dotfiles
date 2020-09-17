@@ -8,11 +8,14 @@ set splitright
 set splitbelow
 
 " better copy paste with vim?
-set clipboard=unnamed
-set clipboard=unnamedplus
+" set clipboard=unnamed
+" set clipboard=unnamedplus
 
 " tab configuration
 set autoindent noexpandtab tabstop=4 shiftwidth=4
+" tab completion
+set wildmode=longest,list,full
+set wildmenu
 "set smartindent
 
 " can use backspace
@@ -26,4 +29,6 @@ set wildignore+=*/.git/*,*/.idea/*,*/.DS_Store
 set ttimeoutlen=50
 
 set undofile
+
 set incsearch
+set smartcase

@@ -4,4 +4,20 @@ let g:omnicomplete_fetch_full_documentation = 0
 
 let b:ale_linters = [ 'OmniSharp' ]
 
-nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+augroup csharp_commands
+	autocmd!
+
+	" error format
+	autocmd BufNewFile,BufRead *.cs set errorformat=\ %#%f(%l\\\,%c):\ %m
+
+
+	" Show type information automatically when the cursor stops moving
+	" errorformat
+	" autocmd BufNewFile,BufRead *.cs setlocal compiler cs
+
+	" tests
+	autocmd FileType cs nnoremap <leader>rt :TestNearest<cr>
+	autocmd FileType cs nnoremap <leader>rf :TestFile<cr>
+	autocmd FileType cs nnoremap <leader>ra :TestSuite<cr>
+	autocmd FileType cs nnoremap <leader>rl :TestLast<cr>
+augroup END
