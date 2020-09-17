@@ -1,3 +1,7 @@
+balena-etcher-electron
+yelp
+transmission
+inkscape
 cmus
 QtProject.conf
 QDirStat
@@ -26,6 +30,7 @@ freerdp
 lutris
 Thunar
 gtk-2.0
+gtk-3.0
 mimeapps.list
 totem
 google-chrome
