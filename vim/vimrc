@@ -48,6 +48,8 @@ filetype indent plugin on
 
 " Tab completion options
 set completeopt=longest,menuone
+set wildmode=longest,list,full
+set wildmenu
 
 " airline ==>==>====<==<==
 let g:airline#extensions#tabline#enabled = 1 " show errors in the status line

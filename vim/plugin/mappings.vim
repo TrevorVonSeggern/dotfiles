@@ -8,6 +8,8 @@ augroup standard_maps
 
 	" pressing escape sucks.
 	imap jj <Esc>
+	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 	" Better split navigation
 	nnoremap <C-J> <C-W><C-J>
