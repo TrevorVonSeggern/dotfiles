@@ -58,17 +58,55 @@ export LANG=en_US.UTF-8
 
 export EDITOR='vim'
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-
 export CC=gcc
 export CXX=g++
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet disable spying
 
+
 # elm
-#alias elm='docker run -it --rm -v "$(pwd):/code" -w "/code" -e "HOME=/tmp" -u $UID:$GID -p 8000:8000 codesimple/elm:0.19'
+alias devbox.elm='docker run -it --rm \
+	-e HOST_USER_ID=$UID \
+	-e HOST_GROUP_ID=$GID \
+	-v $PWD:/home/me/work \
+	-v /home/$USER/.config:/home/me/.config \
+	-v /home/$USER/.local:/home/me/.local \
+	-v /home/$USER/.cache:/home/me/.cache \
+	-v /home/$USER/.ssh:/home/me/.ssh \
+	teamtvo/devbox:elm'
+
+# dotnet
+alias devbox.dotnet='docker run -it --rm \
+	-e HOST_USER_ID=$UID \
+	-e HOST_GROUP_ID=$GID \
+	-v $PWD:/home/me/work \
+	-v /home/$USER/.config:/home/me/.config \
+	-v /home/$USER/.local:/home/me/.local \
+	-v /home/$USER/.cache:/home/me/.cache \
+	-v /home/$USER/.ssh:/home/me/.ssh \
+	teamtvo/devbox:dotnet'
+
+# node
+alias devbox.node='docker run -it --rm \
+	-e HOST_USER_ID=$UID \
+	-e HOST_GROUP_ID=$GID \
+	-v $PWD:/home/me/work \
+	-v /home/$USER/.config:/home/me/.config \
+	-v /home/$USER/.local:/home/me/.local \
+	-v /home/$USER/.cache:/home/me/.cache \
+	-v /home/$USER/.ssh:/home/me/.ssh \
+	teamtvo/devbox:node'
+
 # python
-alias pthon='docker run -it --rm -v "$(pwd):/project" -e "HOME=/project" -u $UID:$GID -p 8080:8080 python:3'
+alias devbox.python='docker run -it --rm \
+	-e HOST_USER_ID=$UID \
+	-e HOST_GROUP_ID=$GID \
+	-v $PWD:/home/me/work \
+	-v /home/$USER/.config:/home/me/.config \
+	-v /home/$USER/.local:/home/me/.local \
+	-v /home/$USER/.cache:/home/me/.cache \
+	-v /home/$USER/.ssh:/home/me/.ssh \
+	teamtvo/devbox:python'
+
 # best git log alias
 alias glog='git log --date-order --all --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)"'
 
