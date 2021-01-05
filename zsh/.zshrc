@@ -124,6 +124,12 @@ path+=("$HOME/.dotnet/tools/")
 path+=("/snap/bin")
 
 
+# Arduino variables
+export ARDUINO_DIR='/usr/share/arduino'
+export ARDMK_DIR='/usr/share/arduino'
+export AVR_TOOLS_DIR='/usr'
+
+
 
 # Docker in wsl to non wsl
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
