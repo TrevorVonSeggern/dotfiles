@@ -1,8 +1,10 @@
-set directory=$XDG_CACHE_HOME/vim/swap,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim/backup,~/,/tmp
-set undodir=$XDG_CACHE_HOME/vim/undo,~/,/tmp
+set directory=$XDG_CACHE_HOME/vim/swap,/tmp
+set backupdir=$XDG_CACHE_HOME/vim/backup,/tmp
+set undodir=$XDG_CACHE_HOME/vim/undo,/tmp
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+
+
 
 runtime plugins.vim
 
@@ -26,6 +28,7 @@ Plug 'tpope/vim-fugitive' " git
 
 " Language specific plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " do you really need other plugins? todo...
+Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale' " linter. It is a client for language servers.
 Plug 'mattn/emmet-vim' " Html
 Plug 'ekalinin/Dockerfile.vim' " syntax for the dockerfile
@@ -70,7 +73,7 @@ let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
 
 " setup intellisense.
-let g:coc_global_extensions=[ 'coc-omnisharp' ]
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-json' ]
 
 " emmit should lazy install.
 let user_emmet_install_global = 0
