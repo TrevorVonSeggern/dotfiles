@@ -79,7 +79,7 @@ alias devbox.elm='docker run -it --rm \
 alias devbox.dotnet='docker run -it --rm \
 	-e HOST_USER_ID=$UID \
 	-e HOST_GROUP_ID=$GID \
-	-v $PWD:/home/me/work \
+	-v "$(pwd)":/home/me/work \
 	-v /home/$USER/.config:/home/me/.config \
 	-v /home/$USER/.local:/home/me/.local \
 	-v /home/$USER/.cache:/home/me/.cache \
