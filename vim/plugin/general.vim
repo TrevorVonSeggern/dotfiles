@@ -16,6 +16,8 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 " tab completion
 "set smartindent
 
+let mapleader=" "
+
 " can use backspace
 set backspace=indent,eol,start
 

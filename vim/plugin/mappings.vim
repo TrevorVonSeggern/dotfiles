@@ -17,6 +17,11 @@ augroup standard_maps
 	nnoremap <C-L> <C-W><C-L>
 	nnoremap <C-H> <C-W><C-H>
 
+	" commenting lines
+	vmap ++ <plug>NERDCommenterToggle
+	nmap ++ <plug>NERDCommenterToggle
+
+	" ww opens nerd tree
 	map <C-w><C-w> :NERDTreeToggle %<CR> " ctrl ww opens nerdtree
 augroup END
 

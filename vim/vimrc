@@ -3,8 +3,9 @@ set backupdir=$XDG_CACHE_HOME/vim/backup,/tmp
 set undodir=$XDG_CACHE_HOME/vim/undo,/tmp
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-
-
+if !has('nvim')
+  set viminfo+=n~/.local/share/vim/viminfo
+endif
 
 runtime plugins.vim
 
@@ -17,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " base editor stuff
 Plug 'editorconfig/editorconfig-vim' " respect .editorconfig
+Plug 'preservim/nerdcommenter' " this is for commenting lines.
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf.vim' " definitely need both fzf plugs. Not actually duplicate fzf installs.
 Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
@@ -73,7 +75,9 @@ let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
 
 " setup intellisense.
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-json' ]
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-json', 'coc-python' ]
 
 " emmit should lazy install.
 let user_emmet_install_global = 0
+
+set pyxversion=3
