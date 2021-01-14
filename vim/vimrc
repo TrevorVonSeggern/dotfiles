@@ -6,6 +6,7 @@ set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIM
 if !has('nvim')
   set viminfo+=n~/.local/share/vim/viminfo
 endif
+set nocompatible
 
 runtime plugins.vim
 
@@ -28,12 +29,29 @@ Plug 'gioele/vim-autoswap' " because swap files get in the way.
 " needed with coc.
 Plug 'tpope/vim-fugitive' " git
 
-" Language specific plugins
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " do you really need other plugins? todo...
+" Language agnostic plugins
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} " do you really need other plugins? todo...
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale' " linter. It is a client for language servers.
+
+" Language specific plugins
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'tag': '0.1.155',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'mattn/emmet-vim' " Html
-Plug 'ekalinin/Dockerfile.vim' " syntax for the dockerfile
+Plug 'ekalinin/Dockerfile.vim' " dockerfile
+Plug 'ionide/Ionide-vim', {
+      \ 'do':  'make fsautocomplete',
+      \} " F#
 
 " Angular
 "Plug 'Quramy/tsuquyomi'
@@ -43,7 +61,6 @@ Plug 'leafgarland/typescript-vim'
 "Plug 'mhartington/vim-typings'
 
 call plug#end()
-
 " for some reason ui needs to be loaded after...
 runtime ui.vim
 
@@ -52,7 +69,12 @@ runtime ui.vim
 filetype indent plugin on
 
 " Tab completion options
-set completeopt=longest,menuone
+"set completeopt=longest,menuone,noselect,noinsert
+set completeopt+=longest
+set omnifunc=syntaxcomplete#Complete
+let g:deoplete#enable_at_startup = 1
+set shortmess+=c
+"completion of the :somethin<tab>
 set wildmode=longest,list,full
 set wildmenu
 
@@ -75,7 +97,7 @@ let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
 
 " setup intellisense.
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-json', 'coc-python' ]
+"let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-json', 'coc-python' ]
 
 " emmit should lazy install.
 let user_emmet_install_global = 0

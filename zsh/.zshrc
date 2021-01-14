@@ -114,7 +114,25 @@ alias glog='git log --date-order --all --graph --abbrev-commit --decorate --form
 alias vi="vim"
 alias vim="nvim"
 
+# better cd aliases
+alias cd=' cd'
+alias ..=' cd ..; ls'
+alias ...=' cd ..; cd ..; ls'
+alias ....=' cd ..; cd ..; cd ..; ls'
+alias cd..='..'
+alias cd...='...'
+alias cd....='....'
+
 # Better keybindings
+# 
+# # better cd aliases
+alias cd=' cd'
+alias ..=' cd ..; ls'
+alias ...=' cd ..; cd ..; ls'
+alias ....=' cd ..; cd ..; cd ..; ls'
+alias cd..='..'
+alias cd...='...'
+alias cd....='....'
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 
