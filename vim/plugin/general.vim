@@ -3,6 +3,7 @@ set fileformats=unix,dos,mac
 
 " line numbering on the left.
 set number relativenumber
+set scrolloff=8
 
 set splitright
 set splitbelow
@@ -15,6 +16,8 @@ set splitbelow
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 " tab completion
 "set smartindent
+
+let mapleader=" "
 
 " can use backspace
 set backspace=indent,eol,start
@@ -33,3 +36,7 @@ set undofile
 
 set incsearch
 set smartcase
+
+" Search removes the hights after search
+set nohls
+set incsearch

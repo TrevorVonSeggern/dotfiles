@@ -6,6 +6,7 @@ set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
 set noshowmode
 " Visual bell is aweful
 set visualbell
+set belloff+=ctrlg
 set t_vb=
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
