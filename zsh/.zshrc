@@ -137,3 +137,8 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 	export CHROME_BIN=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
 	umask 0022
 fi
+
+
+autoload -U edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
