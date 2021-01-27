@@ -135,6 +135,7 @@ alias cd...='...'
 alias cd....='....'
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
+set -o vi
 
 
 path+=("$HOME/.local/bin")

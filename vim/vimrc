@@ -95,3 +95,4 @@ let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
 let user_emmet_install_global = 0
 
 set pyxversion=3
+let g:OmniSharp_server_stdio = 0

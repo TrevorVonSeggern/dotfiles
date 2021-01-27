@@ -6,5 +6,5 @@ export HISTFILE=$XDG_DATA_HOME/zsh/history
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export MYVIMRC=$XDG_CONFIG_HOME/vim/vimrc
 
-export VISUAL="alacritty -e /usr/bin/vim"
+#export VISUAL="alacritty -e /usr/bin/vim"
 export EDITOR=vim

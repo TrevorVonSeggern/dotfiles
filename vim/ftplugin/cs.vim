@@ -1,4 +1,4 @@
-let b:OmniSharp_server_stdio = 1
+"let b:OmniSharp_server_stdio = 1
 let b:OmniSharp_highlight_types = 2
 let g:omnicomplete_fetch_full_documentation = 0
 
