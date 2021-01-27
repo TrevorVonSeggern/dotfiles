@@ -30,7 +30,6 @@ Plug 'gioele/vim-autoswap' " because swap files get in the way.
 Plug 'tpope/vim-fugitive' " git
 
 " Language agnostic plugins
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} " do you really need other plugins? todo...
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -42,16 +41,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale' " linter. It is a client for language servers.
 
 " Language specific plugins
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'tag': '0.1.155',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'OmniSharp/omnisharp-vim' " dotnet
 Plug 'mattn/emmet-vim' " Html
 Plug 'ekalinin/Dockerfile.vim' " dockerfile
-Plug 'ionide/Ionide-vim', {
-      \ 'do':  'make fsautocomplete',
-      \} " F#
 
 " Angular
 "Plug 'Quramy/tsuquyomi'
