@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'editorconfig/editorconfig-vim' " respect .editorconfig
 Plug 'preservim/nerdcommenter' " this is for commenting lines.
 Plug 'scrooloose/nerdtree'
+Plug 'mbbill/undotree'
 Plug 'junegunn/fzf.vim' " definitely need both fzf plugs. Not actually duplicate fzf installs.
 Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
 Plug 'gioele/vim-autoswap' " because swap files get in the way.
@@ -48,22 +49,12 @@ Plug 'mattn/emmet-vim' " Html
 Plug 'ekalinin/Dockerfile.vim' " dockerfile
 
 " Angular
-"Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
-"Plug 'Quramy/vim-js-pretty-template'
-"Plug 'Quramy/vim-dtsm'
-"Plug 'mhartington/vim-typings'
 
 call plug#end()
 
 " for some reason ui needs to be loaded after...
 runtime sets.vim
-
-" Tab completion options
-"set completeopt=longest,menuone,noselect,noinsert
-"set omnifunc=syntaxcomplete#Complete
-let g:deoplete#enable_at_startup = 1
-set shortmess+=c
 
 " ale settings
 let g:ale_fix_on_save = 1
@@ -71,9 +62,3 @@ let g:ale_sign_column_always = 1 " keeps the gutter on the left open always.
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \}
-" setup intellisense.
-"let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-tsserver', 'coc-json', 'coc-python' ]
-
-" emmit should lazy install.
-let user_emmet_install_global = 0
-let g:OmniSharp_server_stdio = 0
