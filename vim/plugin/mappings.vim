@@ -1,5 +1,7 @@
 augroup standard_maps
 	autocmd!
+	let mapleader=" "
+
 	" Ctrl-backspace deletes previous word
 	noremap! <C-BS> <C-w>
 	noremap! <C-h> <C-w>
