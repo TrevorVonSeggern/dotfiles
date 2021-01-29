@@ -5,7 +5,6 @@
 export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="afmagic"
 ZSH_THEME="afowler"
 
 # more colors
@@ -42,6 +41,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $HISTFILE ] || mkdir -p $XDG_DATA_HOME/zsh && touch $HISTFILE
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
+#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # User configuration
 
@@ -124,7 +125,7 @@ alias cd...='...'
 alias cd....='....'
 
 # Better keybindings
-# 
+#
 # # better cd aliases
 alias cd=' cd'
 alias ..=' cd ..; ls'

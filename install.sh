@@ -2,7 +2,9 @@
 CDIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 # zsh
-[[ -f $HOME/.zshenv ]] && rm $HOME/.zshenv
+if [[ -f "$HOME/.zshenv" ]]; then
+       rm $HOME/.zshenv
+fi
 ln -s "$CDIR/.zshenv" $HOME/.zshenv
 [[ ! -d $HOME/.config ]] && ln -s "$CDIR" $HOME/.config
 [[ ! -d $HOME/.config/zsh/oh-my-zsh ]] && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
