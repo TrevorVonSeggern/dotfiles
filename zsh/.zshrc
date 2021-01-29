@@ -41,8 +41,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $HISTFILE ] || mkdir -p $XDG_DATA_HOME/zsh && touch $HISTFILE
-#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
-#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --ignore-vcs'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # User configuration
 
