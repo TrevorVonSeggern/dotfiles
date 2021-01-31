@@ -22,6 +22,7 @@ set splitright
 set splitbelow
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " characters for whitespace
 set shortmess+=c " shortmess is the hit-enter prompts
+set iskeyword+=-
 
 " bells / sounds suck.
 set visualbell

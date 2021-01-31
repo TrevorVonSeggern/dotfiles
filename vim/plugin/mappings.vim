@@ -13,15 +13,29 @@ augroup standard_maps
 	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+	" Better tabbing
+	vnoremap < <gv
+	vnoremap > >gv
+
 	" Better split navigation
-	"nnoremap <C-J> <C-W><C-J>
-	"nnoremap <C-K> <C-W><C-K>
-	"nnoremap <C-L> <C-W><C-L>
-	"nnoremap <C-H> <C-W><C-H>
 	nnoremap <leader>h :wincmd h<CR>
 	nnoremap <leader>j :wincmd j<CR>
 	nnoremap <leader>k :wincmd k<CR>
 	nnoremap <leader>l :wincmd l<CR>
+	" Use alt + hjkl to resize windows
+	nnoremap <M-j>    :resize -2<CR>
+	nnoremap <M-k>    :resize +2<CR>
+	nnoremap <M-h>    :vertical resize -2<CR>
+	nnoremap <M-l>    :vertical resize +2<CR>
+
+	" Easy CAPS
+	inoremap <c-u> <ESC>viwUi
+	nnoremap <c-u> viwU<Esc>
+
+	" Alternate way to save
+	nnoremap <C-s> :w<CR>
+	" Alternate way to quit
+	nnoremap <C-Q> :wq!<CR>
 
 	nnoremap <leader>u :UndotreeShow<CR>
 
