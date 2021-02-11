@@ -28,6 +28,10 @@ augroup standard_maps
 	nnoremap <M-h>    :vertical resize -2<CR>
 	nnoremap <M-l>    :vertical resize +2<CR>
 
+	" buffer navigation
+	nnoremap <leader>p    :bp<CR>
+	nnoremap <leader>n    :bn<CR>
+
 	" Easy CAPS
 	inoremap <c-u> <ESC>viwUi
 	nnoremap <c-u> viwU<Esc>
