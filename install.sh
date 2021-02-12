@@ -16,3 +16,7 @@ ln -s "$CDIR/.zshenv" $HOME/.zshenv
 # install all the normal required packages
 installList="$( cat installedPackages.txt | awk '{ printf $1; printf " " }' )"
 sudo apt -qq -y install $installList
+
+
+# some npm stuff
+mkdir -p "${XDG_CACHE_HOME}/.npm-packages"
