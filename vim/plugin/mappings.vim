@@ -33,8 +33,8 @@ augroup standard_maps
 	nnoremap <leader>n    :bn<CR>
 
 	" Easy CAPS
-	inoremap <c-u> <ESC>viwUi
-	nnoremap <c-u> viwU<Esc>
+	"inoremap <c-u> <ESC>viwUi
+	"nnoremap <c-u> viwU<Esc> "NO ctrl u go up.
 
 	" Alternate way to save
 	nnoremap <C-s> :w<CR>
