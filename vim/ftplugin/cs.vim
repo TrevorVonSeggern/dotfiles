@@ -5,20 +5,25 @@ let g:OmniSharp_selector_findusages = 'fzf'
 
 let b:ale_linters = [ 'OmniSharp' ]
 
-augroup csharp_commands
-	autocmd!
+compiler cs
+
+" Should this be in a augroup?
+"nmap <buffer> gd :echo 'hi'<cr>
+nmap <buffer> gd :OmniSharpGotoDefinition<cr>
+
+augroup cs
+	au!
 
 	" error format
-	autocmd BufNewFile,BufRead *.cs set errorformat=\ %#%f(%l\\\,%c):\ %m
+	au BufNewFile,BufRead *.cs set errorformat=\ %#%f(%l\\\,%c):\ %m
 
 
-	" Show type information automatically when the cursor stops moving
-	" errorformat
-	" autocmd BufNewFile,BufRead *.cs setlocal compiler cs
+	" goto definition
+	"autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
 
 	" tests
-	autocmd FileType cs nnoremap <leader>rt :TestNearest<cr>
-	autocmd FileType cs nnoremap <leader>rf :TestFile<cr>
-	autocmd FileType cs nnoremap <leader>ra :TestSuite<cr>
-	autocmd FileType cs nnoremap <leader>rl :TestLast<cr>
+	"au FileType cs nnoremap <leader>rt :TestNearest<cr>
+	"au FileType cs nnoremap <leader>rf :TestFile<cr>
+	"au FileType cs nnoremap <leader>ra :TestSuite<cr>
+	"au FileType cs nnoremap <leader>rl :TestLast<cr>
 augroup END

@@ -8,7 +8,7 @@ set wildignore+=*/.git/*,*/.idea/*,*/.DS_Store
 set undofile
 
 " make things faster.
-set ttyfast                                         "assume fast terminal connection
+set ttyfast                                         "assume fast esterminal connection
 set lazyredraw
 set history=1000                                    "number of command lines to remember
 
@@ -23,6 +23,9 @@ set splitbelow
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " characters for whitespace
 set shortmess+=c " shortmess is the hit-enter prompts
 set iskeyword+=-
+
+" no mouse in vim
+set mouse=nicr
 
 " bells / sounds suck.
 set visualbell
