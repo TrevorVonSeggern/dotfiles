@@ -35,7 +35,7 @@ set t_vb=
 
 " line number stuff.
 set number relativenumber
-set scrolloff=8
+set scrolloff=4
 
 " search
 set smartcase

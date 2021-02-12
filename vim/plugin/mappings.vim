@@ -28,19 +28,9 @@ augroup standard_maps
 	nnoremap <M-h>    :vertical resize -2<CR>
 	nnoremap <M-l>    :vertical resize +2<CR>
 
-	" no mouse wheel interactions
-	map <ScrollWheelUp> <nop>
-	map <S-ScrollWheelUp> <nop>
-	map <C-ScrollWheelUp> <nop>
-	map <ScrollWheelDown> <nop>
-	map <S-ScrollWheelDown> <nop>
-	map <C-ScrollWheelDown> <nop>
-	map <ScrollWheelLeft> <nop>
-	map <S-ScrollWheelLeft> <nop>
-	map <C-ScrollWheelLeft> <nop>
-	map <ScrollWheelRight> <nop>
-	map <S-ScrollWheelRight> <nop>
-	map <C-ScrollWheelRight> <nop>
+	" buffer navigation
+	nnoremap <leader>p    :bp<CR>
+	nnoremap <leader>n    :bn<CR>
 
 	" Easy CAPS
 	"inoremap <c-u> <ESC>viwUi
