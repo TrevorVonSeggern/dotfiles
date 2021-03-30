@@ -38,6 +38,7 @@ set number relativenumber
 set scrolloff=4
 
 " search
+set ignorecase
 set smartcase
 set incsearch
 set nohls
@@ -87,7 +88,7 @@ let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
 
 " NERD TREE
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
