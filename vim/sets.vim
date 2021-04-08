@@ -71,9 +71,6 @@ endif
 
 """""" Plugin Config """"""
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
 " omnisharp
 let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
 
