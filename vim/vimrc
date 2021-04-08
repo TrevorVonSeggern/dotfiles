@@ -4,7 +4,7 @@ set undodir=$XDG_CACHE_HOME/vim/undo,/tmp
 set backupdir=$XDG_CACHE_HOME/vim/backup,/tmp
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 if !has('nvim')
-  set viminfo+=n~/.local/share/vim/viminfo
+	set viminfo+=n~/.local/share/vim/viminfo
 endif
 
 set nocompatible
@@ -12,7 +12,7 @@ filetype indent plugin on
 
 runtime plugins.vim
 
-call plug#begin('$XDG_DATA_HOME/vim/plugged')
+call plug#begin(expand($XDG_CACHE_HOME) . '/vim/plugged')
 " Ui
 "Plug 'flazz/vim-colorschemes' " so many colors!
 Plug 'chriskempson/base16-vim'
@@ -25,7 +25,7 @@ Plug 'preservim/nerdcommenter' " this is for commenting lines.
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf.vim' " definitely need both fzf plugs. Not actually duplicate fzf installs.
-Plug 'junegunn/fzf', { 'dir': '$XDG_CACHE_HOME/vim/fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': $XDG_CACHE_HOME . '/vim/fzf', 'do': './install --all' }
 Plug 'gioele/vim-autoswap' " because swap files get in the way.
 
 " Plug 'ajh17/vimcompletesme' " alternatives => supertab, youcompleteme. Not
