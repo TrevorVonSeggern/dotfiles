@@ -32,35 +32,20 @@ Plug 'gioele/vim-autoswap' " because swap files get in the way.
 " needed with coc.
 Plug 'tpope/vim-fugitive' " git
 
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
 " Language agnostic plugins
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale' " linter. It is a client for language servers.
+Plug 'sheerun/vim-polyglot' " is this needed?
 
 " Language specific plugins
 Plug 'OmniSharp/omnisharp-vim' " dotnet
 Plug 'mattn/emmet-vim' " Html
 Plug 'ekalinin/Dockerfile.vim' " dockerfile
 
-" Angular
-Plug 'leafgarland/typescript-vim'
-
 call plug#end()
+
+" configure coc
+runtime plug-config/coc.vim
 
 " for some reason ui needs to be loaded after...
 runtime sets.vim
-
-let g:deoplete#enable_at_startup = 1
-
-" ale settings
-let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1 " keeps the gutter on the left open always.
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace']
-\}
