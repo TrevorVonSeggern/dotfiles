@@ -112,7 +112,7 @@ alias devbox.python='docker run -it --rm \
 # best git log alias
 alias glog='git log --date-order --all --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)"'
 
-alias vi="vim"
+alias vi="nvim"
 alias vim="nvim"
 
 # better cd aliases
@@ -136,7 +136,7 @@ alias cd...='...'
 alias cd....='....'
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
-set -o vi
+# set -o vi this might undo some features. like ctrl backspace
 
 
 path+=("$HOME/.local/bin")
@@ -144,6 +144,8 @@ path+=("$HOME/.local/bin")
 path+=("$HOME/.dotnet/tools/")
 # snap in path
 path+=("/snap/bin")
+path+=("$XDG_DATA_HOME/.go/bin")
+gopath+=("$HOME/git/go/")
 
 
 # Arduino variables
