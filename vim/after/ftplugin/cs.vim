@@ -17,6 +17,7 @@ augroup cs
 	" error format
 	au BufNewFile,BufRead *.cs set errorformat=\ %#%f(%l\\\,%c):\ %m
 
+	au FileType cs nnoremap <leader><eEnter> :CocAction<cr>
 
 	" goto definition
 	"autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)

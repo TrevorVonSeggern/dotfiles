@@ -1,6 +1,7 @@
 augroup standard_maps
 	autocmd!
-	let mapleader=" "
+
+	nnoremap <leader><SPACE> :CocAction<CR>
 
 	" Ctrl-backspace deletes previous word
 	noremap! <C-BS> <C-w>

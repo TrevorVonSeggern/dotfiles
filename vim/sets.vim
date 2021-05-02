@@ -1,11 +1,16 @@
 syntax on
 
+" leader
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 " file format default
 set encoding=utf-8
 set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
 set fileformats=unix,dos,mac
 set wildignore+=*/.git/*,*/.idea/*,*/.DS_Store
 set undofile
+"set autochdir " so open vim, then ctrl ww opens nerdtree
 
 " make things faster.
 set ttyfast                                         "assume fast esterminal connection
@@ -34,7 +39,8 @@ set belloff+=ctrlg
 set t_vb=
 
 " line number stuff.
-set number relativenumber
+set number
+set norelativenumber
 set scrolloff=4
 
 " search
@@ -71,6 +77,9 @@ endif
 
 """""" Plugin Config """"""
 
+" Coc
+let g:coc_disable_startup_warning = 1
+
 " omnisharp
 let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
 
@@ -85,7 +94,11 @@ let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
 
 " NERD TREE
 autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Ex | endif
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_list_hide= 'bin,obj'
+
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
