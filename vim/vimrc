@@ -15,7 +15,8 @@ runtime plugins.vim
 call plug#begin(expand($XDG_CACHE_HOME) . '/vim/plugged')
 " Ui
 "Plug 'flazz/vim-colorschemes' " so many colors!
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 

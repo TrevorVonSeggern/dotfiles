@@ -59,16 +59,17 @@ set wildmenu
 
 " Theme
 set background=dark
-if (has("termguicolors"))
-	"set termguicolors " Doesn't work in alacritty.
-	"colorscheme codedark
-	"colorscheme base16-default-dark
-	colorscheme trevor_color
-	" highlight Comment cterm=italic gui=italic
-else
-	"set t_Co=256
-	"let base16colorspace=256
-endif
+colorscheme gruvbox
+"if (has("termguicolors"))
+	""set termguicolors " Doesn't work in alacritty.
+	""colorscheme codedark
+	""colorscheme base16-default-dark
+	"colorscheme trevor_color
+	"" highlight Comment cterm=italic gui=italic
+"else
+	""set t_Co=256
+	""let base16colorspace=256
+"endif
 
 if executable('rg')
 	let g:rg_derive_root='true'
