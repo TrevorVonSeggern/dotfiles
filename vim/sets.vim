@@ -90,6 +90,7 @@ let user_emmet_install_global = 0
 " python 3 for the win
 if has('pythonx')
 	set pyxversion=3
+endif
 
 " Airline ==>==>====<==<==
 let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
