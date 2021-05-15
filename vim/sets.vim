@@ -88,7 +88,8 @@ let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
 let user_emmet_install_global = 0
 
 " python 3 for the win
-set pyxversion=3
+if has('pythonx')
+	set pyxversion=3
 
 " Airline ==>==>====<==<==
 let g:airline#extensions#tabline#enabled = 1 " show errors in the status line
