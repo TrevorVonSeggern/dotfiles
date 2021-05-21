@@ -19,6 +19,7 @@ set history=1000                                    "number of command lines to 
 
 " default tab handling. Default use tabs.
 set autoindent noexpandtab tabstop=4 shiftwidth=4
+set cindent cino=j1,(0,ws,Ws " makes lambda indent not suck. Might need to move to file type specific plugin
 
 " ui stuff.
 set timeoutlen=350 " # of ms between j and j

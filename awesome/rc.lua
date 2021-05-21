@@ -567,7 +567,7 @@ awful.rules.rules = {
     -- Alacritty should be transparent.
     {
 		rule = { class = 'Alacritty' },
-		properties = { opacity = 0.9 }
+		properties = { opacity = 1 }
 	},
 
     -- Floating clients.
