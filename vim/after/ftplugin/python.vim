@@ -4,7 +4,7 @@ setl shiftwidth=4
 setl expandtab
 setl autoindent
 
-setl textwidth=79
+"setl textwidth=79
 setl fileformat=unix
 setl encoding=utf-8
 

@@ -105,4 +105,4 @@ let g:netrw_list_hide= 'bin,obj'
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let NERDTreeIgnore = ['bin', 'obj', '\.js.map$']
+let NERDTreeIgnore = ['bin', 'obj', '\.js.map$', '.pyc', '__pycache__']
