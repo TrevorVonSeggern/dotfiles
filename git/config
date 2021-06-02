@@ -9,3 +9,6 @@
      date = relative
 [push]
 	default = current
+[pull]
+	rebase = false
+	ff = only
