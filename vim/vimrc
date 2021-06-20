@@ -1,7 +1,6 @@
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 set directory=$XDG_CACHE_HOME/vim/swap
 set undodir=$XDG_CACHE_HOME/vim/undo
-set backupdir=$XDG_CACHE_HOME/vim/backup
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 if !has('nvim')
 	set viminfo+=n~/.local/share/vim/viminfo

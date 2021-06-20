@@ -4,6 +4,8 @@ syntax on
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+set nobackup
+
 " file format default
 set encoding=utf-8
 set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
