@@ -83,6 +83,7 @@ endif
 
 " Coc
 let g:coc_disable_startup_warning = 1
+let g:coc_global_extensions = [ 'coc-jedi' ]
 
 " omnisharp
 let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
