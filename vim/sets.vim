@@ -24,7 +24,7 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 set cindent cino=j1,(0,ws,Ws " makes lambda indent not suck. Might need to move to file type specific plugin
 
 " ui stuff.
-set timeoutlen=350 " # of ms between j and j
+set timeoutlen=350 ttimeoutlen=0 " # of ms between j and j
 set backspace=indent,eol,start " can use backspace
 set splitright
 set splitbelow
