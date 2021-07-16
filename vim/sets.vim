@@ -12,6 +12,7 @@ set viewoptions=folds,options,cursor,unix,slash     "unix/windows compatibility
 set fileformats=unix,dos,mac
 set wildignore+=*/.git/*,*/.idea/*,*/.DS_Store
 set undofile
+set nobk
 "set autochdir " so open vim, then ctrl ww opens nerdtree
 
 " make things faster.
