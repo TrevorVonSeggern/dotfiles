@@ -9,7 +9,6 @@ window:
     instance: 'Alacritty'
     general: 'Alacritty'
 
-background_opacity: 1
 
 colors:
   primary:

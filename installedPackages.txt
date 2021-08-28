@@ -17,3 +17,4 @@ cmake
 net-tools
 arduino-mk
 compton
+alacritty
