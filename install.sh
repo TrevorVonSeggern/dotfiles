@@ -17,5 +17,15 @@ ln -s "$CDIR/.zshenv" $HOME/.zshenv
 # link the .config directory
 [[ ! -d $HOME/.config ]] && ln -s "$CDIR" $HOME/.config
 
+echo "Installing nodejs:"
+if which node > /dev/null
+then
+	echo "Node is installed, skipping..."
+else
+	curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+	sudo apt-get install -y nodejs
+fi
+
+
 
 sudo update-alternatives --config alacritty
