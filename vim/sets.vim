@@ -64,20 +64,20 @@ set wildmenu
 " Theme
 set background=dark
 colorscheme gruvbox
-"if (has("termguicolors"))
-	""set termguicolors " Doesn't work in alacritty.
-	""colorscheme codedark
-	""colorscheme base16-default-dark
-	"colorscheme trevor_color
-	"" highlight Comment cterm=italic gui=italic
-"else
-	""set t_Co=256
-	""let base16colorspace=256
-"endif
 
+
+" RipGrep configuration
 if executable('rg')
 	let g:rg_derive_root='true'
 endif
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 
 """""" Plugin Config """"""
