@@ -46,3 +46,15 @@ yuzu
 NuGet
 wslu
 Raspberry Pi
+Unity Hub/
+UnityHub/
+autostart/
+compiz-1/
+libaccounts-glib/
+npm/bin/
+npm/lib/
+npm/share/
+nvim/coc-settings.json
+synapse/
+unity3d/
+vlc/
