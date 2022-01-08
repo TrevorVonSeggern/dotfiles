@@ -15,5 +15,3 @@ python3-pip
 ripgrep
 cmake
 net-tools
-arduino-mk
-compton
