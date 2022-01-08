@@ -4,8 +4,15 @@
 [mergetool]
      keepBackup = false
 [core]
-     editor = vim
+     editor = nvim
 [log]
      date = relative
 [push]
 	default = current
+[pull]
+	rebase = false
+	ff = only
+[difftool]
+    prompt = true
+[diff]
+    tool = nvimdiff

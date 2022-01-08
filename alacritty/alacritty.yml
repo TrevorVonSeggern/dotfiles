@@ -1,5 +1,5 @@
-#env:
-#  TERM: alacritty
+env:
+  TERM: xterm
 
 live_config_reload: true
 
@@ -9,7 +9,6 @@ window:
     instance: 'Alacritty'
     general: 'Alacritty'
 
-background_opacity: 1
 
 colors:
   primary:

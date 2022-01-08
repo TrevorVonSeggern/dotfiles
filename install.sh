@@ -1,6 +1,11 @@
 #!/bin/bash
 CDIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
+# install all the normal required packages
+sudo add-apt-repository ppa:aslatter/ppa
+installList="$( cat $CDIR/installedPackages.txt | awk '{ printf $1; printf " " }' )"
+sudo apt -qq -y install $installList
+
 # zsh
 if [[ -f "$HOME/.zshenv" ]]; then
        rm $HOME/.zshenv
@@ -12,11 +17,18 @@ ln -s "$CDIR/.zshenv" $HOME/.zshenv
 # link the .config directory
 [[ ! -d $HOME/.config ]] && ln -s "$CDIR" $HOME/.config
 
+echo "Installing nodejs:"
+if which node > /dev/null
+then
+	echo "Node is installed, skipping..."
+else
+	curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+	sudo apt-get install -y nodejs
+fi
 
-# install all the normal required packages
-#installList="$( cat $CDIR/installedPackages.txt | awk '{ printf $1; printf " " }' )"
-#sudo apt -qq -y install $installList
 
 
 # some npm stuff
 #mkdir -p "${XDG_CACHE_HOME}/.npm-packages"
+
+#sudo update-alternatives --config alacritty

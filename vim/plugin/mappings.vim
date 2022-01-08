@@ -1,6 +1,7 @@
 augroup standard_maps
 	autocmd!
 
+	inoremap <silent><expr> <C-k> coc#refresh()
 	nnoremap <leader><SPACE> :CocAction<CR>
 
 	" Ctrl-backspace deletes previous word

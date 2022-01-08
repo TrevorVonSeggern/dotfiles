@@ -19,6 +19,8 @@ augroup cs
 
 	au FileType cs nnoremap <leader><eEnter> :CocAction<cr>
 
+	"inoremap <silent><expr> <c-space> coc#refresh()
+
 	" goto definition
 	"autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
 
