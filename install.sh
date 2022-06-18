@@ -28,4 +28,7 @@ fi
 
 
 
-sudo update-alternatives --config alacritty
+# some npm stuff
+#mkdir -p "${XDG_CACHE_HOME}/.npm-packages"
+
+#sudo update-alternatives --config alacritty

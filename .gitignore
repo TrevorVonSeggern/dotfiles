@@ -46,6 +46,12 @@ yuzu
 NuGet
 wslu
 Raspberry Pi
+chromium/
+lxsession/
+lxterminal/
+openbox/
+pcmanfm/
+qt5ct/
 Unity Hub/
 UnityHub/
 autostart/
