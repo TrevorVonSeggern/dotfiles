@@ -1,19 +1,21 @@
 [user]
-     email = tvoman2@gmail.com
-     name = Trevor Von Seggern
+	email = tvoman2@gmail.com
+	name = Trevor Von Seggern
+[merge]
+	conflictStyle = diff3
 [mergetool]
-     keepBackup = false
+	keepBackup = false
 [core]
-     editor = nvim
+	editor = nvim
 [log]
-     date = relative
+	date = relative
 [push]
 	default = current
 [pull]
 	rebase = false
 	ff = only
 [difftool]
-    prompt = true
+    prompt = false
 [diff]
     tool = nvimdiff
 [init]

@@ -30,7 +30,8 @@ Plug 'gioele/vim-autoswap' " because swap files get in the way.
 
 " Plug 'ajh17/vimcompletesme' " alternatives => supertab, youcompleteme. Not
 " needed with coc.
-Plug 'tpope/vim-fugitive' " git
+
+Plug 'samoshkin/vim-mergetool' " git
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
