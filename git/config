@@ -1,12 +1,21 @@
 [user]
 	email = tvoman2@gmail.com
 	name = Trevor Von Seggern
-[merge]
-	conflictStyle = diff3
-[mergetool]
-	keepBackup = false
+
 [core]
 	editor = nvim
+
+[merge]
+	tool = vim_mergetool
+	conflictStyle = diff3
+
+[mergetool]
+	keepBackup = false
+
+[mergetool "vim_mergetool"]
+	cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+	trustExitCode = true
+
 [log]
 	date = relative
 [push]

@@ -82,6 +82,10 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 """""" Plugin Config """"""
 
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+
+
 " Coc
 let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [ 'coc-jedi', 'coc-rls', 'coc-omnisharp' ]
