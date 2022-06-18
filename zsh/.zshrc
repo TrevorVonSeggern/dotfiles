@@ -146,7 +146,9 @@ path+=("$HOME/.dotnet/tools/")
 # snap in path
 path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
-gopath+=("$HOME/git/go/")
+# go
+path+=("/usr/local/go/bin")
+#gopath+=("$HOME/git/go/"
 
 
 # Arduino variables

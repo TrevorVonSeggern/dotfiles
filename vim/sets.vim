@@ -84,7 +84,7 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 " Coc
 let g:coc_disable_startup_warning = 1
-let g:coc_global_extensions = [ 'coc-jedi' ]
+let g:coc_global_extensions = [ 'coc-jedi', 'coc-rls', 'coc-omnisharp' ]
 
 " omnisharp
 let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
