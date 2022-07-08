@@ -88,7 +88,7 @@ let g:mergetool_prefer_revision = 'local'
 
 " Coc
 let g:coc_disable_startup_warning = 1
-let g:coc_global_extensions = [ 'coc-jedi', 'coc-rls', 'coc-omnisharp' ]
+let g:coc_global_extensions = [ 'coc-omnisharp' ]
 
 " omnisharp
 let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall

@@ -1,5 +1,5 @@
 env:
-  TERM: xterm
+  TERM: xterm-256color
 
 live_config_reload: true
 
