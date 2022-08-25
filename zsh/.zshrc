@@ -59,7 +59,7 @@ echo '  \/  \/ \___|_|\___\___/|_| |_| |_|\___|'
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 export CC=gcc
 export CXX=g++
@@ -146,10 +146,13 @@ path+=("$HOME/.dotnet/tools/")
 # snap in path
 path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
-# go
-path+=("/usr/local/go/bin")
-#gopath+=("$HOME/git/go/"
 
+# frontend tools:
+# nvm
+source /usr/share/nvm/init-nvm.sh
+path+=($(yarn global bin))
+
+# go. Gopath is no longer needed. see https://stackoverflow.com/questions/10838469/how-to-compile-go-program-consisting-of-multiple-files/61793820#61793820
 
 # Arduino variables
 export ARDUINO_DIR='/usr/share/arduino'

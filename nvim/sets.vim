@@ -27,6 +27,7 @@ set cindent cino=j1,(0,ws,Ws " makes lambda indent not suck. Might need to move 
 " ui stuff.
 set timeoutlen=350 ttimeoutlen=0 " # of ms between j and j
 set backspace=indent,eol,start " can use backspace
+set signcolumn=yes
 set splitright
 set splitbelow
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " characters for whitespace
@@ -34,7 +35,7 @@ set shortmess+=c " shortmess is the hit-enter prompts
 set iskeyword+=-
 
 " no mouse in vim
-set mouse=
+"set mouse=
 
 " bells / sounds suck.
 set visualbell
@@ -54,8 +55,9 @@ set incsearch
 set nohls
 
 " tab completion menu.
-set completeopt+=longest
-set completeopt-=preview
+set completeopt=menu,menuone,noselect
+"set completeopt+=longest
+"set completeopt-=preview
 
 "completion of the :somethin<tab>
 set wildmode=longest,list,full
@@ -87,14 +89,16 @@ let g:mergetool_prefer_revision = 'local'
 
 
 " Coc
-let g:coc_disable_startup_warning = 1
-let g:coc_global_extensions = [ 'coc-omnisharp' ]
+"let g:coc_disable_startup_warning = 1
+"let g:coc_global_extensions = [ 'coc-omnisharp' ]
 
 " omnisharp
-let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
+"let g:OmniSharp_server_stdio = 1 " need to run :OmniSharpInstall
 
 " emmit should lazy install.
-let user_emmet_install_global = 0
+let user_emmet_install_global = 1
+"let g:user_emmet_expandabbr_key = ',' does not restrict to html files. very
+"annoying.
 
 " python 3 for the win
 if has('pythonx')

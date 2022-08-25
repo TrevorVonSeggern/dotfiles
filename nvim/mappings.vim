@@ -51,4 +51,6 @@ augroup standard_maps
 
 	" ww opens nerd tree
 	map <C-w><C-w> :NERDTreeToggle %<CR> " ctrl ww opens nerdtree
+
+	
 augroup END
