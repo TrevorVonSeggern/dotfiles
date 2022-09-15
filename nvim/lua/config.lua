@@ -48,3 +48,12 @@ for _, lsp in ipairs(Servers) do
 	}
 end
 
+
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+--capabilities.textDocument.completion.completionItem.snippetSupport = false
+--require('lspconfig').emmet_ls.setup({
+		--on_attach = on_attach,
+		--flags = lsp_flags,
+		--filetypes= {"sass"},
+		--capabilities=capabilities
+	--})

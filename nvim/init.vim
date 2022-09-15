@@ -57,7 +57,7 @@ call plug#end()
 runtime sets.vim
 runtime mappings.vim
 
-let g:Servers = [ 'gopls', 'omnisharp', 'sumneko_lua', 'tsserver', 'angularls' ]
+let g:Servers = [ 'gopls', 'omnisharp', 'sumneko_lua', 'tsserver', 'angularls', 'clangd' ]
 
 lua require('config')
 lua require('autocomplete')
