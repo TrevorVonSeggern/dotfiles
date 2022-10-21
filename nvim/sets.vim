@@ -35,7 +35,7 @@ set shortmess+=c " shortmess is the hit-enter prompts
 set iskeyword+=-
 
 " no mouse in vim
-"set mouse=
+set mouse=
 
 " bells / sounds suck.
 set visualbell

@@ -1,4 +1,17 @@
+--lua require('lspconfig').sumneko_lua.setup {
+  --settings = {
+    --Lua = {
+      --diagnostics = {
+        ---- Get the language server to recognize the `vim` global
+        --globals = {'vim'},
+      --},
+    --},
+  --},
+--}
+
 Servers = vim.g['Servers']
+
+vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
  require("nvim-lsp-installer").setup({
 	automatic_installation = true

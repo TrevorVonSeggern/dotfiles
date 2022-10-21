@@ -61,4 +61,3 @@ let g:Servers = [ 'gopls', 'omnisharp', 'sumneko_lua', 'tsserver', 'angularls', 
 
 lua require('config')
 lua require('autocomplete')
-
