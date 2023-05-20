@@ -147,8 +147,6 @@ path+=("$HOME/.dotnet/tools/")
 path+=("$XDG_DATA_HOME/.go/bin")
 
 
-[ -f $python2.7 ] && path+=("/snap/bin")
-
 # nvm
 if ! type "$nvm" > /dev/null; then
 	export NVM_DIR="$HOME/.nvm"
