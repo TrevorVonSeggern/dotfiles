@@ -139,18 +139,23 @@ bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 # set -o vi this might undo some features. like ctrl backspace
 
-
 path+=("$HOME/.local/bin")
 # dotnet cli
 path+=("$HOME/.dotnet/tools/")
 # snap in path
-path+=("/snap/bin")
+[ -f $snap ] && path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
 
-# frontend tools:
+
 # nvm
-source /usr/share/nvm/init-nvm.sh
-path+=($(yarn global bin))
+if ! type "$nvm" > /dev/null; then
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+[ -f /usr/share/nvm/init-nvm.sh ] && /usr/share/nvm/init-nvm.sh
+[ -f $yarn ] && path+=($(yarn global bin))
+
 
 # go. Gopath is no longer needed. see https://stackoverflow.com/questions/10838469/how-to-compile-go-program-consisting-of-multiple-files/61793820#61793820
 
