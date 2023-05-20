@@ -144,3 +144,5 @@ systemsettingsrc
 webengineurlinterceptoradblockrc
 xdg-desktop-portal-kderc
 xsettingsd/
+zsh/.zsh_history
+nautilus/
