@@ -12,6 +12,10 @@ vim.keymap.set("n", "<leader>r", function()
     vim.cmd("so")
 end)
 
+vim.keymap.set("n", "<leader>h", function()
+	vim.lsp.buf.hover()
+end)
+
 vim.keymap.set("n", "<leader>p", "<cmd>bp<CR>")
 vim.keymap.set("n", "<leader>n", "<cmd>bn<CR>")
 
