@@ -9,3 +9,5 @@ export HISTFILE=$XDG_DATA_HOME/zsh/history
 #export VISUAL="alacritty -e /usr/bin/vim"
 export EDITOR=vim
 #. "$XDG_DATA_HOME/cargo/env"
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
