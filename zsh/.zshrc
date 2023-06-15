@@ -141,7 +141,11 @@ bindkey '5~' kill-word
 
 path+=("$HOME/.local/bin")
 # dotnet cli
-path+=("$HOME/.dotnet/tools/")
+if [ -d "$HOME/.dotnet" ]; then
+	export DOTNET_ROOT="$HOME/.dotnet"
+	path+=("$HOME/.dotnet/tools/")
+	path+=("$HOME/.dotnet")
+fi
 # snap in path
 [ -f $snap ] && path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
