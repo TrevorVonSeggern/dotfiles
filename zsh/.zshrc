@@ -160,7 +160,9 @@ if ! type "$nvm" > /dev/null; then
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 [ -f /usr/share/nvm/init-nvm.sh ] && /usr/share/nvm/init-nvm.sh
-[ -f $yarn ] && path+=($(yarn global bin))
+if type "$yarn" > /dev/null; then
+	path+=($(yarn global bin))
+fi
 
 
 # go. Gopath is no longer needed. see https://stackoverflow.com/questions/10838469/how-to-compile-go-program-consisting-of-multiple-files/61793820#61793820
