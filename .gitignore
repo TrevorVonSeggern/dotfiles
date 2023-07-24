@@ -154,3 +154,17 @@ draw.io/
 menus/
 
 evince/
+
+GNOME-xdg-terminals.list
+VSCodium/
+Yubico/
+dleyna-server-service.conf
+electron-react-boilerplate/
+fontconfig/
+lsp-plugins/
+nvim.backup/
+nvim/after/ftplugin/
+obsidian/
+scdl/
+xdg-terminals.list
+
