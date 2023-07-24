@@ -38,3 +38,6 @@ vim.keymap.set("v", "++", "<plug>NERDCommenterToggle")
 vim.keymap.set("n", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
 vim.keymap.set("n", "gal", "<Cmd>lua require('textcase').current_word('to_lower_case')<CR>")
 vim.keymap.set("n", "gas", "<Cmd>lua require('textcase').current_word('to_snake_case')<CR>")
+
+
+vim.keymap.set("n", "<s-s>", "<Cmd>lua vim.lsp.buf.code_action()<CR>", {noremap=true})
