@@ -153,6 +153,8 @@ path+=("$XDG_DATA_HOME/.go/bin")
 
 [ -f $python2.7 ] && path+=("/snap/bin")
 
+[ -f $minikube ] && alias ks='minikube kubectl'
+
 # nvm
 if ! type "$nvm" > /dev/null; then
 	export NVM_DIR="$HOME/.nvm"
