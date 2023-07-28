@@ -65,6 +65,7 @@ export CC=gcc
 export CXX=g++
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet disable spying
 
+alias ks="microk8s kubectl"
 
 # elm
 alias devbox.elm='docker run -it --rm \
