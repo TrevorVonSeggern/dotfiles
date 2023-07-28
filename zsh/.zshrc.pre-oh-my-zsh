@@ -65,7 +65,6 @@ export CC=gcc
 export CXX=g++
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet disable spying
 
-alias ks="microk8s kubectl"
 
 # elm
 alias devbox.elm='docker run -it --rm \
@@ -142,19 +141,11 @@ bindkey '5~' kill-word
 
 path+=("$HOME/.local/bin")
 # dotnet cli
-if [ -d "$HOME/.dotnet" ]; then
-	export DOTNET_ROOT="$HOME/.dotnet"
-	path+=("$HOME/.dotnet/tools/")
-	path+=("$HOME/.dotnet")
-fi
+path+=("$HOME/.dotnet/tools/")
 # snap in path
 [ -f $snap ] && path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
 
-
-[ -f $python2.7 ] && path+=("/snap/bin")
-
-[ -f $minikube ] && alias ks='minikube kubectl'
 
 # nvm
 if ! type "$nvm" > /dev/null; then
@@ -163,9 +154,7 @@ if ! type "$nvm" > /dev/null; then
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 [ -f /usr/share/nvm/init-nvm.sh ] && /usr/share/nvm/init-nvm.sh
-if type "$yarn" > /dev/null; then
-	path+=($(yarn global bin))
-fi
+[ -f $yarn ] && path+=($(yarn global bin))
 
 
 # go. Gopath is no longer needed. see https://stackoverflow.com/questions/10838469/how-to-compile-go-program-consisting-of-multiple-files/61793820#61793820

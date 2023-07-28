@@ -4,6 +4,7 @@ env:
 live_config_reload: true
 
 window:
+  decorations: full
   title: 'Alacritty'
   class:
     instance: 'Alacritty'
