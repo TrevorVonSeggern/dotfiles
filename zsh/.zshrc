@@ -65,7 +65,6 @@ export CC=gcc
 export CXX=g++
 export DOTNET_CLI_TELEMETRY_OPTOUT=1 # dotnet disable spying
 
-alias ks="microk8s kubectl"
 
 # elm
 alias devbox.elm='docker run -it --rm \
@@ -154,7 +153,12 @@ path+=("$XDG_DATA_HOME/.go/bin")
 
 [ -f $python2.7 ] && path+=("/snap/bin")
 
-[ -f $minikube ] && alias ks='minikube kubectl'
+if type minikube > /dev/null; then
+	alias ks='minikube kubectl'
+fi
+if type microk8s > /dev/null; then
+	alias ks="microk8s kubectl"
+fi
 
 # nvm
 if ! type "$nvm" > /dev/null; then
