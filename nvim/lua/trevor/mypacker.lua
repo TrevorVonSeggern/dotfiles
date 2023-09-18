@@ -4,29 +4,17 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		-- or                            , branch = '0.1.x',
+		'nvim-telescope/telescope.nvim', tag = '0.1.3',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
+		'folke/tokyonight.nvim',
 		config = function()
-			vim.cmd('colorscheme rose-pine')
+			vim.cmd('colorscheme tokyonight-night')
 		end
 	})
 	use("norcalli/nvim-colorizer.lua")
-	use({
-		"folke/trouble.nvim",
-		config = function()
-			require("trouble").setup {
-				icons = false,
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			}
-		end
-	})
+	use("folke/trouble.nvim")
 
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 	use("nvim-treesitter/playground")
@@ -75,8 +63,5 @@ use {
 }
 
 use("folke/zen-mode.nvim")
---use("github/copilot.vim")
---use("eandrju/cellular-automaton.nvim")
---use("laytan/cloak.nvim")
 
 end)
