@@ -153,7 +153,8 @@ path+=("$XDG_DATA_HOME/.go/bin")
 
 [ -f $python2.7 ] && path+=("/snap/bin")
 
-[ -f $minikube ] && alias ks='minikube kubectl'
+#[ -f $minikube ] && alias kubectl='minikube kubectl'
+#[ -f $minikube ] && alias ks='minikube kubectl'
 
 # nvm
 if ! type "$nvm" > /dev/null; then
@@ -187,3 +188,4 @@ fi
 autoload -U edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
