@@ -2,12 +2,17 @@
 keybinds clear-defaults=true {
 	unbind "Ctrl h"
 	unbind "Ctrl s"
+	unbind "Ctrl n"
+	unbind "Ctrl o"
     normal {
 		unbind "Ctrl s"
+		unbind "Ctrl n"
+		unbind "Ctrl o"
         bind "Ctrl /" { SwitchToMode "EnterSearch"; SearchInput 0; }
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         bind "Ctrl m" { SwitchToMode "Move"; }
+        bind "Ctrl f" { SwitchToMode "Session"; }
     }
     locked {
         bind "Ctrl m" { SwitchToMode "Move"; }
@@ -116,7 +121,7 @@ keybinds clear-defaults=true {
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        bind "Ctrl o" { SwitchToMode "Normal"; }
+        bind "Ctrl f" { SwitchToMode "Normal"; }
         bind "Ctrl /" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
