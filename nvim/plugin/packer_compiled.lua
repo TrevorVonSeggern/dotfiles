@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/trevor/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?.lua;/home/trevor/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?/init.lua;/home/trevor/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?.lua;/home/trevor/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/trevor/.cache/nvim/packer_hererocks/2.1.1702233742/lib/lua/5.1/?.so"
+local package_path_str = "/home/trevor/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?.lua;/home/trevor/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?/init.lua;/home/trevor/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?.lua;/home/trevor/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/trevor/.cache/nvim/packer_hererocks/2.1.1716656478/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -78,6 +78,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/trevor/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["auto-save.nvim"] = {
+    loaded = true,
+    path = "/home/trevor/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
+    url = "https://github.com/pocco81/auto-save.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -226,6 +231,11 @@ _G.packer_plugins = {
     path = "/home/trevor/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  vimwiki = {
+    loaded = true,
+    path = "/home/trevor/.local/share/nvim/site/pack/packer/start/vimwiki",
+    url = "https://github.com/vimwiki/vimwiki"
+  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/home/trevor/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -234,14 +244,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: text-case.nvim
-time([[Config for text-case.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtextcase\frequire\0", "config", "text-case.nvim")
-time([[Config for text-case.nvim]], false)
 -- Config for: tokyonight.nvim
 time([[Config for tokyonight.nvim]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0!colorscheme tokyonight-night\bcmd\bvim\0", "config", "tokyonight.nvim")
 time([[Config for tokyonight.nvim]], false)
+-- Config for: text-case.nvim
+time([[Config for text-case.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtextcase\frequire\0", "config", "text-case.nvim")
+time([[Config for text-case.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
