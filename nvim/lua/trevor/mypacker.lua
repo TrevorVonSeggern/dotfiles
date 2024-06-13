@@ -32,7 +32,8 @@ local packer = require('packer').startup(function(use)
 			'nvim-tree/nvim-web-devicons', -- optional
 		},
 	}
-
+	use('vimwiki/vimwiki')
+	use('pocco81/auto-save.nvim')
 	use { "johmsalas/text-case.nvim",
 	config = function()
 		require('textcase').setup {}
