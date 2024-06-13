@@ -34,3 +34,19 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.opt.mouse=""
+
+vim.g.vimwiki_list = {
+	{
+		path = '~/Documents/notes/',
+		syntax = 'markdown',
+		ext = 'md',
+	},
+	{
+		path = '~/Documents/dnd_notes/',
+		syntax = 'markdown',
+		ext = 'md',
+	},
+}
+--vim.g.vimwiki_global_ext = 0
+
+vim.opt.autowriteall = true
