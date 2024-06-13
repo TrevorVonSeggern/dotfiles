@@ -140,12 +140,13 @@ bindkey '5~' kill-word
 # set -o vi this might undo some features. like ctrl backspace
 
 path+=("$HOME/.local/bin")
+path+=("$HOME/.dotnet/tools/")
 # dotnet cli
-if [ -d "$HOME/.dotnet" ]; then
-	export DOTNET_ROOT="$HOME/.dotnet"
-	path+=("$HOME/.dotnet/tools/")
-	path+=("$HOME/.dotnet")
-fi
+export DOTNET_ROOT=/usr/share/dotnet
+#if [ -d "$HOME/.dotnet" ]; then
+	#export DOTNET_ROOT="$HOME/.dotnet"
+	#path+=("$HOME/.dotnet")
+#fi
 # snap in path
 [ -f $snap ] && path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
