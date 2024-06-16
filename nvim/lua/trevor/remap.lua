@@ -8,9 +8,10 @@ vim.keymap.set("n", "<C-j>", "<cmd>m +1<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>r", function()
-    vim.cmd("so")
-end)
+vim.keymap.set("n", "<leader>r", ":IncRename ")
+--vim.keymap.set("n", "<leader>r", function()
+  --return ":IncRename " .. vim.fn.expand("<cword>")
+--end, { expr = true })
 
 vim.keymap.set("n", "<leader>h", function()
 	vim.lsp.buf.hover()
@@ -37,6 +38,8 @@ vim.keymap.set("v", "++", "<plug>NERDCommenterToggle")
 --vim.keymap.set("v", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
 vim.keymap.set("n", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
 vim.keymap.set("n", "gal", "<Cmd>lua require('textcase').current_word('to_lower_case')<CR>")
+vim.keymap.set("n", "gap", "<Cmd>lua require('textcase').current_word('to_pascal_case')<CR>")
+vim.keymap.set("n", "gac", "<Cmd>lua require('textcase').current_word('to_camel_case')<CR>")
 vim.keymap.set("n", "gas", "<Cmd>lua require('textcase').current_word('to_snake_case')<CR>")
 
 
