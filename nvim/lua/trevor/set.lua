@@ -50,3 +50,6 @@ vim.g.vimwiki_list = {
 --vim.g.vimwiki_global_ext = 0
 
 vim.opt.autowriteall = true
+
+vim.treesitter.language.register("dockerfile", "Dockerfile")
+
