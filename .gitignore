@@ -4,6 +4,10 @@
 *.bak
 */*.bak
 **/*.bak
+!zsh/
+!nvim/
+!qtile/
+!zellij/
 zsh/.zsh_history
 npm/bin/
 npm/lib/

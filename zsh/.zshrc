@@ -139,6 +139,12 @@ bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 # set -o vi this might undo some features. like ctrl backspace
 
+#starship for autocompletion
+if type minikube > /dev/null; then
+	eval "$(starship init zsh)"
+fi
+
+
 path+=("$HOME/.local/bin")
 # dotnet cli
 if [ -d "$HOME/.dotnet" ]; then
@@ -146,6 +152,10 @@ if [ -d "$HOME/.dotnet" ]; then
 	path+=("$HOME/.dotnet/tools/")
 	path+=("$HOME/.dotnet")
 fi
+if [ -d "/usr/share/dotnet" ]; then
+	export DOTNET_ROOT=/usr/share/dotnet
+fi
+
 # snap in path
 [ -f $snap ] && path+=("/snap/bin")
 path+=("$XDG_DATA_HOME/.go/bin")
@@ -161,12 +171,9 @@ if type microk8s > /dev/null; then
 fi
 
 # nvm
-if ! type "$nvm" > /dev/null; then
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-[ -f /usr/share/nvm/init-nvm.sh ] && /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 if type "$yarn" > /dev/null; then
 	path+=($(yarn global bin))
 fi
@@ -179,8 +186,6 @@ export ARDUINO_DIR='/usr/share/arduino'
 export ARDMK_DIR='/usr/share/arduino'
 export AVR_TOOLS_DIR='/usr'
 
-
-
 # Docker in wsl to non wsl
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 	# for angular dev
@@ -188,8 +193,8 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 	umask 0022
 fi
 
-
 autoload -U edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
