@@ -13,7 +13,7 @@
 	keepBackup = false
 
 [mergetool "vim_mergetool"]
-	cmd = nvim -f -c "Gdiffsplit" "$MERGED"
+	cmd = nvim -f -c "Gvdiffsplit!" "$MERGED"
 	trustExitCode = true
 
 [log]

@@ -11,3 +11,4 @@ export EDITOR=vim
 #. "$XDG_DATA_HOME/cargo/env"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+. "$HOME/.cargo/env"

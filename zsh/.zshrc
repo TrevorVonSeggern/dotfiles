@@ -146,6 +146,7 @@ fi
 
 
 path+=("$HOME/.local/bin")
+path+=("$HOME/.dotnet/tools/")
 # dotnet cli
 if [ -d "$HOME/.dotnet" ]; then
 	export DOTNET_ROOT="$HOME/.dotnet"
