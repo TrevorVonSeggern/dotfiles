@@ -8,6 +8,8 @@ vim.keymap.set("n", "<C-j>", "<cmd>m +1<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+vim.keymap.set("n", "yyp", "<cmd>co.<CR>")
+
 vim.keymap.set("n", "<leader>r", ":IncRename ")
 --vim.keymap.set("n", "<leader>r", function()
   --return ":IncRename " .. vim.fn.expand("<cword>")
