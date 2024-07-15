@@ -14,12 +14,12 @@ local packer = require('packer').startup(function(use)
 	})
 	use("norcalli/nvim-colorizer.lua")
 	use("folke/trouble.nvim")
+	use("windwp/nvim-autopairs")
 
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 	use("nvim-treesitter/playground")
 	--use("theprimeagen/harpoon")
 	--use("theprimeagen/refactoring.nvim")
-	--use("mbbill/undotree")
 	use("preservim/nerdcommenter")
 	use("tpope/vim-fugitive")
 	use("nvim-treesitter/nvim-treesitter-context")
@@ -79,14 +79,28 @@ local packer = require('packer').startup(function(use)
 			require("inc_rename").setup()
 		end,
 	}
+
+use {
+  "nvim-neotest/neotest",
+  requires = {
+    "nvim-neotest/nvim-nio",
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+
+	"Issafalcon/neotest-dotnet",
+  }
+}
 end)
 
 local cmp = require('cmp')
 cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-	['<C-Space>'] = cmp.mapping.complete(),
-	['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert,select = true}),
-  }),
+	adapters = {
+		require("neotest-dotnet")
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert,select = true}),
+	}),
 })
 
 local lsp_zero = require('lsp-zero')
@@ -104,18 +118,16 @@ require('mason-lspconfig').setup({
   },
 })
 
-
-
 require("nvim-dap-virtual-text").setup()
 ----require("mason-nvim-dap").setup({
 	----ensure_installed = { "codelldb" }
 ----})
---local dap = require('dap')
---dap.adapters.lldb = {
-  --type = 'executable',
-  --command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-  --name = 'lldb'
---}
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+  name = 'lldb'
+}
 --dap.configurations.cpp = {
   --{
     --name = 'Launch',
@@ -131,5 +143,12 @@ require("nvim-dap-virtual-text").setup()
 --}
 --dap.configurations.c = dap.configurations.cpp
 --dap.configurations.rust = dap.configurations.cpp
+
+require("neotest").setup({
+  adapters = {
+    require("neotest-dotnet")
+  }
+})
+
 return packer;
 

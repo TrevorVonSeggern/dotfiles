@@ -44,6 +44,12 @@ vim.keymap.set("n", "gap", "<Cmd>lua require('textcase').current_word('to_pascal
 vim.keymap.set("n", "gac", "<Cmd>lua require('textcase').current_word('to_camel_case')<CR>")
 vim.keymap.set("n", "gas", "<Cmd>lua require('textcase').current_word('to_snake_case')<CR>")
 
+vim.keymap.set("n", "<leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")
+vim.keymap.set("n", "<leader>tf", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
+vim.keymap.set("n", "<leader>tt", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
+vim.keymap.set("n", "<leader>td", "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>")
+vim.keymap.set("n", "<leader>ts", "<Cmd>lua require('neotest').run.stop()<CR>")
+vim.keymap.set("n", "<leader>ts", "<Cmd>lua require('neotest').run.attach()<CR>")
 
 vim.keymap.set("n", "<s-s>", "<Cmd>lua vim.lsp.buf.code_action()<CR>", {noremap=true})
 
@@ -53,4 +59,8 @@ vim.api.nvim_set_keymap('n', '<F9>', [[:lua require"dap".continue()<CR>]], { nor
 vim.api.nvim_set_keymap('n', '<F10>', [[:lua require"dap".step_over()<CR>]], { noremap = true })
 vim.api.nvim_set_keymap('n', '<F11>', [[:lua require"dap".step_into()<CR>]], { noremap = true })
 vim.api.nvim_set_keymap('n', '<F12>', [[:lua require"dap.ui.widgets".hover()<CR>]], { noremap = true })
+
+vim.api.nvim_set_keymap('n', '<leader>dt', [[:lua require"dap".toggle_breakpoint()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>dh', [[:lua require"dap.ui.widgets".hover()<CR>]], { noremap = true })
+
 --vim.api.nvim_set_keymap('n', '<F5>', [[:lua require"osv".launch({port = 8086})<CR>]], { noremap = true })
