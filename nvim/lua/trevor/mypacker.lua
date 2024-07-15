@@ -35,10 +35,10 @@ local packer = require('packer').startup(function(use)
 	use('vimwiki/vimwiki')
 	use('pocco81/auto-save.nvim')
 	use { "johmsalas/text-case.nvim",
-	config = function()
-		require('textcase').setup {}
-	end
-}
+		config = function()
+			require('textcase').setup {}
+		end
+	}
 	use {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -47,39 +47,32 @@ local packer = require('packer').startup(function(use)
 		end
 	}
 
-use {
-	'VonHeikemen/lsp-zero.nvim',
-	branch = 'v1.x',
-	requires = {
-		-- LSP Support
-		{'neovim/nvim-lspconfig'},
-		{'williamboman/mason.nvim'},
-		{'williamboman/mason-lspconfig.nvim'},
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v3.x',
+		requires = {
+			-- LSP Support
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
+			{'neovim/nvim-lspconfig'},
 
-		-- DAP
-		{'mfussenegger/nvim-dap'},
-		{'rcarriga/nvim-dap-ui'},
-		{'jay-babu/mason-nvim-dap.nvim'},
-		{'theHamsta/nvim-dap-virtual-text'},
+			-- DAP
+			{'mfussenegger/nvim-dap'},
+			{'rcarriga/nvim-dap-ui'},
+			{'jay-babu/mason-nvim-dap.nvim'},
+			{'theHamsta/nvim-dap-virtual-text'},
 
-		-- Autocompletion
-		{'hrsh7th/nvim-cmp'},
-		{'hrsh7th/cmp-buffer'},
-		{'hrsh7th/cmp-path'},
-		{'saadparwaiz1/cmp_luasnip'},
-		{'hrsh7th/cmp-nvim-lsp'},
-		{'hrsh7th/cmp-nvim-lua'},
-		{'smjonas/inc-rename.nvim',
-			config = function()
-				require("inc_rename").setup()
-			end,
-		},
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'hrsh7th/cmp-nvim-lsp'},
 
-		-- Snippets
+			-- Snippets
 			--{'saadparwaiz1/cmp_luasnip'},
-		{'L3MON4D3/LuaSnip'},
+			{'L3MON4D3/LuaSnip'},
+		}
 	}
-}
 
 	use { 'smjonas/inc-rename.nvim',
 		config = function()
@@ -88,44 +81,55 @@ use {
 	}
 end)
 
-require("nvim-dap-virtual-text").setup()
-require("mason-nvim-dap").setup({
-	ensure_installed = { "codelldb" }
+local cmp = require('cmp')
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+	['<C-Space>'] = cmp.mapping.complete(),
+	['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert,select = true}),
+  }),
 })
-local dap = require('dap')
-local dap = require('dap')
-dap.adapters.lldb = {
-  type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-  name = 'lldb'
-}
-dap.configurations.cpp = {
-  {
-    name = 'Launch',
-    type = 'lldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
 
-    -- 💀
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    -- runInTerminal = false,
+local lsp_zero = require('lsp-zero')
+lsp_zero.on_attach(function(_, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {'tsserver', 'rust_analyzer'},
+  handlers = {
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
   },
-}
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+})
+
+
+
+require("nvim-dap-virtual-text").setup()
+----require("mason-nvim-dap").setup({
+	----ensure_installed = { "codelldb" }
+----})
+--local dap = require('dap')
+--dap.adapters.lldb = {
+  --type = 'executable',
+  --command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+  --name = 'lldb'
+--}
+--dap.configurations.cpp = {
+  --{
+    --name = 'Launch',
+    --type = 'lldb',
+    --request = 'launch',
+    --program = function()
+      --return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    --end,
+    --cwd = '${workspaceFolder}',
+    --stopOnEntry = false,
+    --args = {},
+  --},
+--}
+--dap.configurations.c = dap.configurations.cpp
+--dap.configurations.rust = dap.configurations.cpp
 return packer;
 
