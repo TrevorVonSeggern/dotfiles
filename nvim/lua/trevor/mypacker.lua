@@ -39,6 +39,13 @@ local packer = require('packer').startup(function(use)
 		require('textcase').setup {}
 	end
 }
+	use {
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup {}
+		end
+	}
 
 use {
 	'VonHeikemen/lsp-zero.nvim',
@@ -69,11 +76,16 @@ use {
 		},
 
 		-- Snippets
+			--{'saadparwaiz1/cmp_luasnip'},
 		{'L3MON4D3/LuaSnip'},
-		{'rafamadriz/friendly-snippets'},
 	}
 }
-use("folke/zen-mode.nvim")
+
+	use { 'smjonas/inc-rename.nvim',
+		config = function()
+			require("inc_rename").setup()
+		end,
+	}
 end)
 
 require("nvim-dap-virtual-text").setup()
