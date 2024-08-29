@@ -8,12 +8,15 @@ vim.keymap.set("n", "<C-j>", "<cmd>m +1<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "yyp", "<cmd>co.<CR>")
-
-vim.keymap.set("n", "<leader>r", ":IncRename ")
---vim.keymap.set("n", "<leader>r", function()
-  --return ":IncRename " .. vim.fn.expand("<cword>")
---end, { expr = true })
+-- Yank into system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y') -- yank motion
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y') -- yank line
+-- Delete into system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+d') -- delete motion
+vim.keymap.set({'n', 'v'}, '<leader>D', '"+D') -- delete line
+-- Paste from system clipboard
+vim.keymap.set('n', '<leader>p', '"+p')  -- paste after cursor
+vim.keymap.set('n', '<leader>P', '"+P')  -- paste before cursor
 
 vim.keymap.set("n", "<leader>h", function()
 	vim.lsp.buf.hover()
@@ -33,9 +36,7 @@ vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
 vim.keymap.set("n", "++", "<plug>NERDCommenterToggle")
 vim.keymap.set("v", "++", "<plug>NERDCommenterToggle")
 
---vim.keymap.set("n", "<leader><space>ff", "<cmd>Telescope find_files")
-
---vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>r", ":IncRename ")
 
 --vim.keymap.set("v", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
 vim.keymap.set("n", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
@@ -52,7 +53,6 @@ vim.keymap.set("n", "<leader>ts", "<Cmd>lua require('neotest').run.stop()<CR>")
 vim.keymap.set("n", "<leader>ts", "<Cmd>lua require('neotest').run.attach()<CR>")
 
 vim.keymap.set("n", "<s-s>", "<Cmd>lua vim.lsp.buf.code_action()<CR>", {noremap=true})
-
 
 vim.api.nvim_set_keymap('n', '<F8>', [[:lua require"dap".toggle_breakpoint()<CR>]], { noremap = true })
 vim.api.nvim_set_keymap('n', '<F9>', [[:lua require"dap".continue()<CR>]], { noremap = true })
