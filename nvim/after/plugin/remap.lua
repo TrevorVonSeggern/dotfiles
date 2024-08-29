@@ -1,3 +1,4 @@
+
 vim.keymap.set("i", "jj", "<Esc>")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -39,11 +40,11 @@ vim.keymap.set("v", "++", "<plug>NERDCommenterToggle")
 vim.keymap.set("n", "<leader>r", ":IncRename ")
 
 --vim.keymap.set("v", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
-vim.keymap.set("n", "gau", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
-vim.keymap.set("n", "gal", "<Cmd>lua require('textcase').current_word('to_lower_case')<CR>")
-vim.keymap.set("n", "gap", "<Cmd>lua require('textcase').current_word('to_pascal_case')<CR>")
-vim.keymap.set("n", "gac", "<Cmd>lua require('textcase').current_word('to_camel_case')<CR>")
-vim.keymap.set("n", "gas", "<Cmd>lua require('textcase').current_word('to_snake_case')<CR>")
+vim.keymap.set("n", "<leader>cu", "<Cmd>lua require('textcase').current_word('to_upper_case')<CR>")
+vim.keymap.set("n", "<leader>cl", "<Cmd>lua require('textcase').current_word('to_lower_case')<CR>")
+vim.keymap.set("n", "<leader>cp", "<Cmd>lua require('textcase').current_word('to_pascal_case')<CR>")
+vim.keymap.set("n", "<leader>cc", "<Cmd>lua require('textcase').current_word('to_camel_case')<CR>")
+vim.keymap.set("n", "<leader>cs", "<Cmd>lua require('textcase').current_word('to_snake_case')<CR>")
 
 vim.keymap.set("n", "<leader>tt", "<Cmd>lua require('neotest').run.run()<CR>")
 vim.keymap.set("n", "<leader>tf", "<Cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>")
