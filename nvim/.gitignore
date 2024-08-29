@@ -1,2 +1,4 @@
 .netrwhist
+!after
+plugin/packer_compiled.lua
 

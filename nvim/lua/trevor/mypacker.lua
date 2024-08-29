@@ -1,3 +1,4 @@
+
 vim.cmd [[packadd packer.nvim]]
 
 local packer = require('packer').startup(function(use)
@@ -80,16 +81,16 @@ local packer = require('packer').startup(function(use)
 		end,
 	}
 
-use {
-  "nvim-neotest/neotest",
-  requires = {
-    "nvim-neotest/nvim-nio",
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
+	use {
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
 
-	"Issafalcon/neotest-dotnet",
-  }
-}
+			"Issafalcon/neotest-dotnet",
+		}
+	}
 end)
 
 local cmp = require('cmp')
