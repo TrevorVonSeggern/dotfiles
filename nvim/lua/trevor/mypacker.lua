@@ -111,7 +111,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'rust_analyzer'},
+  --ensure_installed = {'tsserver', 'rust_analyzer'},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
@@ -146,10 +146,17 @@ dap.adapters.lldb = {
 --dap.configurations.rust = dap.configurations.cpp
 
 require("neotest").setup({
-  adapters = {
-    require("neotest-dotnet")
-  }
+	adapters = {
+		require("neotest-dotnet")
+	}
 })
+
+require('nvim-treesitter.configs').setup({
+	indent = {
+		enable = true,
+	},
+})
+
 
 return packer;
 
